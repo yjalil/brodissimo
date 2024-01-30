@@ -1,4 +1,5 @@
 class Order < ApplicationRecord
   belongs_to :client, foreign_key: :client_id, class_name: "User"
-  belongs_to :machine
+  has_many :assignements
+  has_many :machines, through: :assignements
 end

@@ -19,11 +19,11 @@ Machine.create!(
 )
 
 Order.create!(
-  client_id: User.first.id,
-  machine_id: Machine.last.id
+  client_id: User.first.id
 )
 
 Assignement.create!(
   worker_id: User.last.id,
-  order_id: Order.last.id
+  order_id: Order.last.id,
+  machine_id: Machine.last.id
 )
