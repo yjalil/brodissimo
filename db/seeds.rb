@@ -1,4 +1,4 @@
-Assignee.destroy_all
+Assignement.destroy_all
 Order.destroy_all
 Machine.destroy_all
 User.destroy_all
@@ -23,7 +23,7 @@ Order.create!(
   machine_id: Machine.last.id
 )
 
-Assignee.create!(
+Assignement.create!(
   worker_id: User.last.id,
   order_id: Order.last.id
 )

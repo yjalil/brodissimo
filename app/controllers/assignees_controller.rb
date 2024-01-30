@@ -1,2 +1,2 @@
-class AssigneesController < ApplicationController
+class AssignementsController < ApplicationController
 end
