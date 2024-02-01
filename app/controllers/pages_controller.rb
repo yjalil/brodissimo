@@ -4,4 +4,13 @@ class PagesController < ApplicationController
   def home
     render
   end
+
+
+  def dashboard
+    render
+  end
+  
+  def calendar
+    render
+  end
 end
