@@ -1,4 +1,5 @@
-    <!-- Start Breadcrumbs -->
+<div data-controller="interact">
+<!-- Start Breadcrumbs -->
     <div class="breadcrumbs">
       <div class="container">
         <div class="row align-items-center">
@@ -26,8 +27,12 @@
                 <div class="main-content-head">
                   <div class="post-thumbnils">
 
-                    <div id="logo" data-controller="interact"><%= image_tag 'testlogo.png' %></div>
-                    <div id="clothing" data-controller="interact"><%= image_tag 'hoodie.png' %></div>
+                    <div id="clothing" >
+                      <div id="logo-zone">
+                        <div id="logo"><%= image_tag 'testlogo.png' %></div>
+                      </div>
+                      <%= image_tag 'hoodie.png' %>
+                    </div>
                   </div>
                   <div class="detail-inner">
                     <h3>Détails techniques</h3>
@@ -161,8 +166,11 @@
                   <%= f.input :photos, as: :file %>
                   <!-- [...] -->
                   <% end %>
-                  <input type="text" class="mb-2" placeholder="Largeur du logo ...">
-                  <input type="text" class="mb-2" placeholder="Longueur du logo ...">
+                  Largeur : <input id="logo-width" type="text" class="mb-2" placeholder="Largeur du logo ..." /> cm
+                  Longeur : <input id="logo-height" type="text" class="mb-2" placeholder="Longueur du logo ..."> cm
+                  Position depuis le haut : <input id="logo-x" type="text" class="mb-2" placeholder="Origine x du logo ..."> cm <br>
+                  Position depuis la gauche : <input id="logo-y" type="text" class="mb-2" placeholder="Origine y du logo ..."> cm
+
                   <button type="submit"><i class="lni lni-upload-al">Submit</i></button>
                 </form>
               </div>
@@ -206,7 +214,7 @@
       </div>
     </section>
     <!-- End Blog Singel Area -->
-
+</div>
 
     <style>
       #logo {
@@ -220,12 +228,14 @@
         white-space: pre-wrap;
         border-style: solid;
         border-color: black;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
       }
       #clothing {
+        position: relative;
         display: flex;
-        min-width: 100px;
-        max-width: calc(100vw - 2rem);
-        min-height: 100px;
         align-items: center;
         justify-content: center;
         border-radius: 0.75rem;
@@ -234,4 +244,13 @@
         border-style: solid;
         border-color: black;
       }
+      #logo-zone {
+        width: 37%;
+        height: 47%;
+        position: absolute;
+        top: 15%;
+        right: 32%;
+        border: 1px solid;
+      }
+
     </style>
