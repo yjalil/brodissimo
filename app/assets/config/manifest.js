@@ -1,7 +1,11 @@
 //= link_tree ../images
-//= link_directory ../stylesheets .scss
-//= link_tree ../../javascript .js
-//= link_tree ../../../vendor/javascript .js
-//= link popper.js
-//= link bootstrap.min.js
-//= link application.css
+//= link_directory ../stylesheets .css
+//= link application.scss
+//= link application.js
+  //= link controllers/application.js
+    //= link controllers/calendar_controller.js
+      //= link controllers/canvas_controller.js
+        //= link controllers/hello_controller.js
+         //= link controllers/index.js
+          //= link controllers/interact_controller.js
+            //= link controllers/recap_controller.js
