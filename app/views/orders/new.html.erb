@@ -16,36 +16,117 @@
   </div>
   <!-- End Breadcrumbs -->
 
-  <!-- Start Account Sign In Area -->
-  <div class="account-login section">
-      <div class="container">
-          <div class="row">
-              <div class="col-lg-6 offset-lg-3 col-md-10 offset-md-1 col-12">
-                  <div class="card login-form inner-content">
-                      <div class="card-body">
-                          <div class="title">
-                              <h3>Sign In Now</h3>
-                              <p>Sign in by entering the information below.</p>
-                          </div>
-                          <div class="input-head">
-                              <div class="form-group input-group">
-                                <%= simple_form_for [@catalog, @order] do |f| %>
-                                <!-- [...] -->
-                                <%= f.input :photo, as: :file %>
-                                <!-- [...] -->
-                                <%= f.submit  %>
+<div class="body">
 
-                                <% end %>
+  <div id="stepper">
+          <div id="step1" class="step">
+              <span class="step-text">1</span>
+          </div>
+          <div class="step-description">Choisissez un modèle</div>
 
-                              </div>
-                          </div>
-                          <div class="button">
-                              <button class="btn" type="submit">Sign In</button>
+          <div class="connector"></div>
+          <div id="step2" class="step active">
+              <span class="step-text">2</span>
+          </div>
+          <div class="step-description">Uploaddez votre logo</div>
+
+          <div class="connector"></div>
+          <div id="step3" class="step">
+              <span class="step-text">3</span>
+          </div>
+          <div class="step-description">Paramétrez votre commande</div>
+      </div>
+
+
+      <div id="content">
+    <!-- Start Account Sign In Area -->
+    <div class="account-login section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3 col-md-10 offset-md-1 col-12">
+                    <div class="card login-form inner-content">
+                        <div class="card-body">
+                            <div class="title">
+                                <h3>Sign In Now</h3>
+                                <p>Sign in by entering the information below.</p>
+                            </div>
+                            <div class="input-head">
+                                <div class="form-group input-group">
+                                  <%= simple_form_for [@catalog, @order] do |f| %>
+                                  <!-- [...] -->
+                                  <%= f.input :photo, as: :file %>
+                                  <!-- [...] -->
+                                  <%= f.submit  %>
+
+                                  <% end %>
+
+                                </div>
+                            </div>
+                            <div class="button">
+                                <button class="btn" type="submit">Sign In</button>
+                            </div>
                           </div>
                         </div>
-                      </div>
-              </div>
-          </div>
-      </div>
-  </div>
-  <!-- End Account Sign In Area -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Account Sign In Area -->
+
+
+</div>
+
+
+   <style>
+        .body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #stepper {
+            background-color: #f4f4f4;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            margin: 0 20px;
+        }
+
+        .step {
+            width: 30px;
+            height: 30px;
+            background-color: #e0e0e0;
+            border-radius: 50%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .step.active {
+            background-color: green;
+        }
+
+        .step-text {
+            color: white;
+            font-size: 14px;
+        }
+
+        .step-description {
+            margin-top: 5px;
+            font-size: 12px;
+        }
+
+        .connector {
+            height: 2px;
+            background-color: #e0e0e0;
+            width: 50%;
+            align-self: center;
+        }
+
+        #content {
+            padding: 20px;
+        }
+    </style>

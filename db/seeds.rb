@@ -56,7 +56,7 @@ Assignement.create!(
   fulldesign: "https://images.unsplash.com/photo-1584223746169-cb0aba6d2187?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 )
 
-file = File.open("/home/yjalil/code/yjalil/brodissimo/app/assets/images/hoodie.png")
+file = File.open("app/assets/images/hoodie.png")
 catalog_item = Catalog.new(name: "White Hoodie")
 catalog_item.photo.attach(io: file, filename: "hoodie.png", content_type: "image/png")
 catalog_item.save!
