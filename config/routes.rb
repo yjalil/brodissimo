@@ -17,4 +17,6 @@ Rails.application.routes.draw do
   resources :assignements
 
   get "dashboard", to: "pages#dashboard", :as => :dashboard
+  
+  get "catalog", to: "pages#catalog", :as => :catalog
 end
