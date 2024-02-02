@@ -61,43 +61,37 @@ catalog_item = Catalog.new(name: "White Hoodie")
 catalog_item.photo.attach(io: file, filename: "hoodie.png", content_type: "image/png")
 catalog_item.save!
 
-file = File.open("/home/yjalil/code/yjalil/brodissimo/app/assets/images/green.png")
+file = File.open("app/assets/images/green.png")
 catalog_item = Catalog.new(name: "Green Hoodie")
 catalog_item.photo.attach(io: file, filename: "green.png", content_type: "image/png")
 catalog_item.save!
 
-file = File.open("/home/yjalil/code/yjalil/brodissimo/app/assets/images/yellow.png")
+file = File.open("app/assets/images/yellow.png")
 catalog_item = Catalog.new(name: "Yellow Hoodie")
 catalog_item.photo.attach(io: file, filename: "Yellow.png", content_type: "image/png")
 catalog_item.save!
 
-file = File.open("/home/yjalil/code/yjalil/brodissimo/app/assets/images/black.png")
+file = File.open("app/assets/images/black.png")
 catalog_item = Catalog.new(name: "Black Hoodie")
 catalog_item.photo.attach(io: file, filename: "black.png", content_type: "image/png")
 catalog_item.save!
 
-file = File.open("/home/yjalil/code/yjalil/brodissimo/app/assets/images/rose.png")
+file = File.open("app/assets/images/rose.png")
 catalog_item = Catalog.new(name: "Rose Hoodie")
 catalog_item.photo.attach(io: file, filename: "rose.png", content_type: "image/png")
 catalog_item.save!
 
-file = File.open("/home/yjalil/code/yjalil/brodissimo/app/assets/images/gris.png")
+file = File.open("app/assets/images/gris.png")
 catalog_item = Catalog.new(name: "Gris Hoodie")
 catalog_item.photo.attach(io: file, filename: "gris.png", content_type: "image/png")
 catalog_item.save!
 
-file = File.open("/home/yjalil/code/yjalil/brodissimo/app/assets/images/red.png")
+file = File.open("app/assets/images/red.png")
 catalog_item = Catalog.new(name: "Red Hoodie")
 catalog_item.photo.attach(io: file, filename: "red.png", content_type: "image/png")
 catalog_item.save!
 
-file = File.open("/home/yjalil/code/yjalil/brodissimo/app/assets/images/grey.png")
+file = File.open("app/assets/images/grey.png")
 catalog_item = Catalog.new(name: "Grey Hoodie")
 catalog_item.photo.attach(io: file, filename: "grey.png", content_type: "image/png")
 catalog_item.save!
-
-
-
-
-
-
