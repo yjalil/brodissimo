@@ -3,13 +3,39 @@
   <head>
     <title>Brodissimo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="description" content="" />
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+      <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.svg" />
+
+      <!-- ========================= CSS here ========================= -->
+      <!-- <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+      <link rel="stylesheet" href="assets/css/LineIcons.3.0.css" />
+      <link rel="stylesheet" href="assets/css/animate.css" />
+      <link rel="stylesheet" href="assets/css/tiny-slider.css" />
+      <link rel="stylesheet" href="assets/css/glightbox.min.css" />
+      <link rel="stylesheet" href="assets/css/main.css" /> -->
+      <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+      <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+      <%= stylesheet_link_tag "animate", "data-turbo-track": "reload" %>
+      <%= stylesheet_link_tag "tiny-slider", "data-turbo-track": "reload" %>
+      <%= stylesheet_link_tag "glightbox.min", "data-turbo-track": "reload" %>
+      <%= stylesheet_link_tag "main", "data-turbo-track": "reload" %>
+      <%= stylesheet_link_tag "bootstrap.min", "data-turbo-track": "reload" %>
+
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/interactjs@1.10.26/dist/interact.min.js"></script>
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   </head>
 
   <body>
