@@ -1,259 +1,51 @@
-<div data-controller="interact recap">
-<!-- Start Breadcrumbs -->
+    <!-- Start Breadcrumbs -->
     <div class="breadcrumbs">
       <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-6 offset-lg-3 col-md-12 col-12">
-            <div class="breadcrumbs-content">
-              <h1 class="page-title">Demande de devis</h1>
-              <ul class="breadcrumb-nav">
-                <li><a href="index.html">Accueil</a></li>
-                <li>Demande de devis</li>
-              </ul>
-            </div>
+          <div class="row align-items-center">
+              <div class="col-lg-6 offset-lg-3 col-md-12 col-12">
+                  <div class="breadcrumbs-content">
+                      <h1 class="page-title">Demander un devis </h1>
+                      <ul class="breadcrumb-nav">
+                          <li><a href="index.html">Home</a></li>
+                          <li>Demander un devis</li>
+                      </ul>
+                  </div>
+              </div>
           </div>
-        </div>
       </div>
-    </div>
-    <!-- End Breadcrumbs -->
+  </div>
+  <!-- End Breadcrumbs -->
 
-    <!-- Start Blog Singel Area -->
-    <section class="section blog-single">
+  <!-- Start Account Sign In Area -->
+  <div class="account-login section">
       <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-md-12 col-12">
-            <div class="single-inner">
-              <div class="post-details">
-                <div class="main-content-head">
-                  <div class="post-thumbnils">
+          <div class="row">
+              <div class="col-lg-6 offset-lg-3 col-md-10 offset-md-1 col-12">
+                  <div class="card login-form inner-content">
+                      <div class="card-body">
+                          <div class="title">
+                              <h3>Sign In Now</h3>
+                              <p>Sign in by entering the information below.</p>
+                          </div>
+                          <div class="input-head">
+                              <div class="form-group input-group">
+                                <%= simple_form_for [@catalog, @order] do |f| %>
+                                <!-- [...] -->
+                                <%= f.input :photo, as: :file %>
+                                <!-- [...] -->
+                                <%= f.submit  %>
 
-                    <div id="clothing" >
-                      <div id="logo-zone">
-                        <div id="logo"><%= image_tag 'testlogo.png' %></div>
-                      </div>
-                      <%= image_tag 'hoodie.png' %>
-                    </div>
-                  </div>
-                  <div class="detail-inner">
-                    <h3>Détails techniques</h3>
-                    <!-- Start Single Widget -->
-                    <div class="widget popular-tag-widget">
-                      <h5 class="widget-title">Graphisme</h5>
-                      <div class="tags">
-                        <a  class="active" data-action="click->recap#change">Vérification des fichiers</a>
-                        <a >Montage éléments</a>
-                        <a >Graphisme Complet</a>
-                      </div>
-                    </div>
-                    <!-- End Single Widget -->
+                                <% end %>
 
-                    <!-- Start Single Widget -->
-                    <div class="widget popular-tag-widget">
-                      <h5 class="widget-title">Type d'impression</h5>
-                      <div class="tags">
-                        <a >Impression directe quadri</a>
-                        <a >Impression directe quadri + vernis mélangé avec encre</a>
-                        <a  class="active">Impression directe quadri + vernis sélectif</a>
-                        <a >Impression directe quadri + blanc</a>
-                        <a >Impression directe quadri + blanc + vernis
-                        </a>
-                        <a >
-                          Adhésif</a>
+                              </div>
+                          </div>
+                          <div class="button">
+                              <button class="btn" type="submit">Sign In</button>
+                          </div>
                         </div>
                       </div>
-                      <!-- End Single Widget -->
-
-                      <!-- Start Single Widget -->
-                      <div class="widget popular-tag-widget">
-                        <h5 class="widget-title">Nombre de faces</h5>
-                        <div class="tags">
-                          <a  class="active">Quadri recto</a>
-                          <a >Quadri recto / verso</a>
-                        </div>
-                      </div>
-                      <!-- End Single Widget -->
-
-                      <!-- Start Single Widget -->
-                      <div class="widget popular-tag-widget">
-                        <h5 class="widget-title">Type d'éclairage</h5>
-                        <div class="tags">
-                          <a  class="active">Eclairage direct</a>
-                          <a >Eclairage indirect</a>
-                        </div>
-                      </div>
-                      <!-- End Single Widget -->
-
-                      <!-- Start Single Widget -->
-                      <div class="widget popular-tag-widget">
-                        <h5 class="widget-title" >Matière</h5>
-                        <div class="tags">
-                          <a  class="active">PVC 19 mm</a>
-                        </div>
-                      </div>
-                      <!-- End Single Widget -->
-
-                      <!-- Start Single Widget -->
-                      <div class="widget popular-tag-widget">
-                        <h5 class="widget-title">Type de LED</h5>
-                        <div class="tags">
-                          <a >LED à point</a>
-                          <a  class="active">LED 3 points</a>
-                          <a >MiNéon</a>
-                        </div>
-                      </div>
-                      <!-- End Single Widget -->
-
-                      <!-- Start Single Widget -->
-                      <div class="widget popular-tag-widget">
-                        <h5 class="widget-title">Alimentation</h5>
-                        <div class="tags">
-                          <a >35 W</a>
-                          <a >60 W</a>
-                          <a  class="active">100 W</a>
-                          <a >200 W</a>
-                        </div>
-                      </div>
-                      <!-- End Single Widget -->
-
-                      <!-- Start Single Widget -->
-                      <div class="widget popular-tag-widget">
-                        <h5 class="widget-title">Interpompier</h5>
-                        <div class="tags">
-                          <a  class="active">Avec</a>
-                          <a >Sans</a>
-                        </div>
-                      </div>
-                      <!-- End Single Widget -->
-
-                      <!-- Start Single Widget -->
-                      <div class="widget popular-tag-widget">
-                        <h5 class="widget-title">Découpe</h5>
-                        <div class="tags">
-                          <a >Ronde</a>
-                          <a  class="active">Lettre simple</a>
-                        </div>
-                      </div>
-                      <!-- End Single Widget -->
-
-                      <!-- Start Single Widget -->
-                      <div class="widget popular-tag-widget">
-                        <h5 class="widget-title">Fixation lettre</h5>
-                        <div class="tags">
-                          <a >Sans</a>
-                          <a  class="active">Entretoises + gabaris de pose</a>
-                          <a >Double face + gabaris de pose</a>
-
-                        </div>
-                      </div>
-                      <!-- End Single Widget -->
-
-
-
-                    </div>
-                  </div>
-
-                </div>
               </div>
-            </div>
-            <aside class="col-lg-4 col-md-12 col-12">
-              <div class="sidebar">
-                <!-- Start Single Widget -->
-                <div class="widget search-widget">
-                  <h5 class="widget-title">Uploader un logo</h5>
-                  <form action="#">
-                  <%= simple_form_for(@order) do |f| %>
-                  <!-- [...] -->
-                  <%= f.input :photos, as: :file %>
-                  <!-- [...] -->
-                  <% end %>
-                  <br>
-                  <button type="submit"><i class="lni lni-upload-al">Submit</i></button>
-                  <br>
-                  <hr>
-                  Largeur : <input id="logo-width" type="text" class="mb-2" placeholder="Largeur du logo ..." /> cm
-                  Longeur : <input id="logo-height" type="text" class="mb-2" placeholder="Longueur du logo ..."> cm
-                  Position depuis le haut : <input id="logo-x" type="text" class="mb-2" placeholder="Origine x du logo ..."> cm <br>
-                  Position depuis la gauche : <input id="logo-y" type="text" class="mb-2" placeholder="Origine y du logo ..."> cm
-
-                </form>
-              </div>
-              <!-- End Single Widget -->
-              <!-- Start Single Widget -->
-              <div class="widget search-widget">
-                <h5 class="widget-title">Quantité souhaitée et tailles</h5>
-                <form action="#">
-
-                  XS<input type="text" width="20px" placeholder="Quantité XS...">
-                  S<input type="text" placeholder="Quantité S...">
-                  M<input type="text" placeholder="Quantité M...">
-                  L<input type="text" placeholder="Quantité L...">
-                  XL<input type="text" placeholder="Quantité XL...">
-                  XLL<input type="text" placeholder="Quantité XXL...">
-
-
-                </form>
-              </div>
-              <!-- End Single Widget -->
-
-              <!-- Start Single Widget -->
-              <div class="widget categories-widget">
-                <h5 class="widget-title">Récap</h5>
-                <ul class="custom">
-                  <!-- <li>
-                    <strong>Graphisme :</strong>Vérification Des fichiers</a>
-                  </li>
-                  <li>
-                    <a ><strong>Type d'impression :</strong>Impression Directe Quadri + Vernis Sélectif</a>
-                  </li>
-                  <li>
-                    <a ><strong>Etc :</strong> More blabla</a>
-                  </li> -->
-                </ul>
-              </div>
-              <!-- End Single Widget -->
-            </div>
-          </aside>
-        </div>
+          </div>
       </div>
-    </section>
-    <!-- End Blog Singel Area -->
-</div>
-
-    <style>
-      #logo {
-        min-width: 50px;
-        max-width: calc(100vw - 2rem);
-        min-height: 50px;
-        align-items: center;
-        justify-content: center;
-        border-radius: 0.75rem;
-        touch-action: none;
-        white-space: pre-wrap;
-        border-style: solid;
-        border-color: black;
-        position: absolute;
-        z-index: 1;
-        top: 0;
-        left: 0;
-      }
-      #clothing {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 0.75rem;
-        touch-action: none;
-        white-space: pre-wrap;
-        border-style: solid;
-        border-color: black;
-      }
-      #logo-zone {
-        width: 37%;
-        height: 47%;
-        position: absolute;
-        top: 15%;
-        right: 32%;
-        border: 1px solid;
-      }
-
-    </style>
+  </div>
+  <!-- End Account Sign In Area -->

@@ -4,16 +4,18 @@ class OrdersController < ApplicationController
   def index
     @orders = Order.all
   end
-  
+
   def new
+    @catalog = Catalog.find(params[:catalog_id])
     @order = Order.new
   end
 
   def create
+    @catalog = Catalog.find(params[:catalog_id])
     @order = Order.new(order_params)
-    @order.client_id = params[:order][:client_id]
+    @order.client = current_user
     if @order.save!
-      redirect_to orders_path
+      redirect_to edit_catalog_order_path(@catalog, @order)
     else
       render :new, status: :unprocessable_entity
     end
@@ -23,6 +25,8 @@ class OrdersController < ApplicationController
   end
 
   def edit
+    @catalog = Catalog.find(params[:catalog_id])
+
   end
 
   def update
@@ -41,7 +45,7 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(:client_id)
+    params.require(:order).permit(:photo)
   end
 
 end

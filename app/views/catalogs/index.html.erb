@@ -1,0 +1,23 @@
+<div class="products">
+
+  <%@catalog.each do |item| %>
+
+      <div class="shirt-card">
+          <div class="shirt-header">
+              <div class="shirt-infos">
+                  <p class="pf_title_product">
+                      <a href="/clique/premium-oc-roundneck/noir.html"><%=item.name%></a>
+                  </p>
+              </div>
+          </div>
+          <div class="shirt-image">
+              <a href="/clique/premium-oc-roundneck/noir.html"><%= cl_image_tag item.photo.key %></a>
+              <div class=" center_image" style="display: none;">
+                  <span class="material-icons">done</span>
+              </div>
+          </div>
+  </div>
+
+
+  <%end%>
+                          </div>
