@@ -185,7 +185,7 @@ background-position: 100% 68%;
                   <h1>Découvrez l'Art de la Broderie Personnalisée à Puget sur Argens</h1>
                   <p>Chez Brodissimo, chaque pièce est une toile où la créativité rencontre la qualité. Explorez notre savoir-faire unique.</p>
                   <div class="button">
-                    <%= link_to orders_path, method: :get, class:"btn border" do %>
+                    <%= link_to catalog_orders_path([:catalog_id]), method: :get, class:"btn border" do %>
                       Demandez un devis
                     <%end%>
 
