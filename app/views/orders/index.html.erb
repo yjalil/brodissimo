@@ -1,41 +1,68 @@
-<!-- Start Breadcrumbs -->
- <div class="breadcrumbs">
-  <div class="container">
-      <div class="row align-items-center">
-          <div class="col-lg-6 offset-lg-3 col-md-12 col-12">
-              <div class="breadcrumbs-content">
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
 
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Listes des ordres.</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<body class="bg-white">
+
+
+
+    <!-- Start Header Area -->
+    <header class="header navbar-area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="nav-inner">
+                        <!-- Start Navbar -->
+
+                        <!-- End Navbar -->
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </header>
+    <!-- End Header Area -->
+
+    <!-- Start Breadcrumbs -->
+    <div class="breadcrumbs" style="background-color: #081828; background-image: url('assets/images/bg-img.png'); background-size: 100% auto; height: 300px;">
+      <div class="container">
+          <div class="row align-items-center">
+              <div class="col-lg-6 offset-lg-3 col-md-12 col-12">
+                  <div class="breadcrumbs-content">
+                      <h1 class="page-title" style="color:#FFFFFF">Listes des ordres</h1>
+                  </div>
               </div>
           </div>
       </div>
-  </div>
-</div>
-<!-- End Breadcrumbs -->
-
+    </div>
+    <!-- End Breadcrumbs -->
+<br><br>
 
 <!-- Start dash Admin Area -->
 <section class="dash section">
   <div class="container">
     <div class="row">
-      <div class="col-12">
-        <div class="section-title">
-          <h3 class="wow zoomIn" data-wow-delay=".2s">Dashboard d'administrateur</h3>
-          <h2 class="wow fadeInUp" data-wow-delay=".4s">Listes des ordres</h2>
-          <p class="wow fadeInUp" data-wow-delay=".6s"></p>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-            <div class="col-lg-9 col-md-6 col-6">
+            <div class="col-lg-12 col-md-6 col-6">
                 <div class="accordion" id="accordionExample">
                     <!-- Ene attente de devis -->
-                    
+                    <% @orders.each do |item| %>
                     <div class="accordion-item">
                       <h2 class="accordion-header" id="heading1">
                           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                               data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
-                              <pre class="title">Titre: <%= Order.first.title %>   Client: <%= Order.first.client.username %>    <%= Order.first.status %></pre>
+                              <pre class="title">Titre: <%= item.title %>   Client: <%= item.client.username %>
+<div class="progress" role="progressbar" aria-label="Default striped example" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+  <div class="progress-bar progress-bar-striped" style="width: 10%"></div>
+</div>
+<strong>Contacter le client</strong> : <%= item.client.email %>/<strong>Tél</strong> : 0653228886
+
+                              </pre>
 
                               <i class="lni lni-plus"></i>
                           </button>
@@ -66,17 +93,17 @@
                                               <div class="cspub-title">Lettre découpée lumineuse</div>
                                               <div class="cspub-declinations">
                                                 <ul>
-                                                  <% if Order.first.present? %>
-                                                    <li><b>Graphisme</b> : <%= Order.first.graphisme %></li>
-                                                    <li><b>Type d'impression</b> : <%= Order.first.type_impression %></li>
-                                                    <li><b>Nombre de faces</b> : <%= Order.first.nombre_faces %></li>
-                                                    <li><b>Type d'éclairage</b> : <%= Order.first.type_eclairage %></li>
-                                                    <li><b>Matière</b> : <%= Order.first.matiere %></li>
-                                                    <li><b>Type de LED</b> : <%= Order.first.type_led %></li>
-                                                    <li><b>Alimentation</b> : <%= Order.first.alimentation %></li>
-                                                    <li><b>Interpompier</b> : <%= Order.first.interpompier %></li>
-                                                    <li><b>Découpe</b> : <%= Order.first.decoupe %></li>
-                                                    <li><b>Fixation lettre</b> : <%= Order.first.fixation_lettre %></li>
+                                                  <% if item.present? %>
+                                                    <li><b>Graphisme</b> : <%= item.graphisme %></li>
+                                                    <li><b>Type d'impression</b> : <%= item.type_impression %></li>
+                                                    <li><b>Nombre de faces</b> : <%= item.nombre_faces %></li>
+                                                    <li><b>Type d'éclairage</b> : <%= item.type_eclairage %></li>
+                                                    <li><b>Matière</b> : <%= item.matiere %></li>
+                                                    <li><b>Type de LED</b> : <%= item.type_led %></li>
+                                                    <li><b>Alimentation</b> : <%= item.alimentation %></li>
+                                                    <li><b>Interpompier</b> : <%= item.interpompier %></li>
+                                                    <li><b>Découpe</b> : <%= item.decoupe %></li>
+                                                    <li><b>Fixation lettre</b> : <%= item.fixation_lettre %></li>
                                                   <% else %>
                                                     <li>Ordre n'existe pas!.</li>
                                                   <% end %>
@@ -84,13 +111,13 @@
                                               </div>
                                               <div class="cspub-calc-projects">
                                                 <div>
-                                                  <label><b>Projet</b> - <%= Order.first.projet_dimensions %></label>
-                                                  <br>Quantité 1- Surface : <%= Order.first.quantite_surface %>
+                                                  <label><b>Projet</b> - <%= item.projet_dimensions %></label>
+                                                  <br>Quantité 1- Surface : <%= item.quantite_surface %>
                                                 </div>
                                               </div>
                                               <div class="cspub-calc-price">
                                                 <div>
-                                                  <span class="cspub-calc-price-exctax"><%= number_to_currency(Order.first.prix_ht, precision: 2) %> ht</span> - <span class="cspub-calc-price-inctax"><%= number_to_currency(Order.first.prix_ttc, precision: 2) %> ttc</span>
+                                                  <span class="cspub-calc-price-exctax"><%= number_to_currency(item.prix_ht, precision: 2) %> ht</span> - <span class="cspub-calc-price-inctax"><%= number_to_currency(item.prix_ttc, precision: 2) %> ttc</span>
                                                 </div>
                                               </div>
                                             </div>
@@ -106,7 +133,7 @@
                                 <div class="card">
                                   <div class="card-body">
                                     <div class="image wow fadeInLeft" data-wow-delay=".3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInLeft;">
-                                      <img src="https://via.placeholder.com/210x300" alt="#">
+                                      <img src="<%= Assignement.first.fulldesign %>" alt="#" width="310" height="350">
                                     </div>
                                   </div>
                                 </div>
@@ -119,6 +146,9 @@
                         </div>
                       </div>
                     </div>
+
+                    <% end %>
+
                 </div>
             </div>
     </div><br>
@@ -126,3 +156,5 @@
 </section>
 
 <!--/ End dash Admin Area -->
+
+</html>
