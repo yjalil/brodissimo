@@ -13,4 +13,9 @@ class PagesController < ApplicationController
   def calendar
     render
   end
+
+  def catalog
+    render
+  end
+
 end
