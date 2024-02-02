@@ -2,25 +2,29 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="recap"
 export default class extends Controller {
-  // static targets = ['recapDisplay']
+
   connect() {
 
   }
   change(element) {
+    // const inputEl = document.querySelector('.popular-tag-widget')
+    // const title = inputEl.querySelector('.widget-title').innerText
+    // const recap = document.querySelector(".categories-widget")
+    // const recapArray = Array.from(recap.querySelectorAll('ul.custom > li'))
+    // const recap = Array.from(document.querySelector(".categories-widget").querySelectorAll("ul.custom > li"))
+    // console.log(recapArray[0].innerText[0])
 
-    const recap = document.querySelector(".custom")
-    const outer_html = element.target.outerHTML
-    if (!(element.target.classList.contains('active'))) {
-      element.target.classList.add('active')
-      const newitem = document.createElement('li')
-    newitem.innerHTML = "<strong>Graphisme</strong> : Vérification"
-    recap.appendChild( newitem)
+    element.target.classList.toggle('active')
+    // if (!(element.target.classList.contains('active'))) {
+      // console.log('no active found')
+    //   const newitem = document.createElement('li')
+    // newitem.innerHTML = "<strong>Graphisme</strong> : Vérification"
+    // recap.appendChild( newitem)
 
+
+    // }
+    // else {
+      // element.target.classList.remove('active')
 
     }
-    else {
-      element.target.classList.remove('active')
-
     }
-    }
-}
