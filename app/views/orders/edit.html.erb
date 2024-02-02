@@ -1,4 +1,4 @@
-<div data-controller="interact recap">
+<div data-controller="interact recap devis">
 <!-- Start Breadcrumbs -->
     <div class="breadcrumbs">
       <div class="container">
@@ -16,8 +16,9 @@
       </div>
     </div>
     <!-- End Breadcrumbs -->
-
-    <!-- Start Blog Singel Area -->
+    <div class="button sticky">
+      <a id="price" class="btn btn-alt" >Devis : <br> 0 € <i class="lni lni-arrow-right"></i></a>
+  </div>    <!-- Start Blog Singel Area -->
     <section class="section blog-single">
       <div class="container">
         <div class="row">
@@ -40,9 +41,9 @@
                     <div class="widget popular-tag-widget">
                       <h5 class="widget-title">Graphisme</h5>
                       <div class="tags">
-                        <a  class="active" data-action="click->recap#change">Vérification des fichiers</a>
-                        <a >Montage éléments</a>
-                        <a >Graphisme Complet</a>
+                        <a data-action="click->recap#change">Vérification des fichiers</a>
+                        <a data-action="click->recap#change">Montage éléments</a>
+                        <a data-action="click->recap#change">Graphisme Complet</a>
                       </div>
                     </div>
                     <!-- End Single Widget -->
@@ -51,14 +52,12 @@
                     <div class="widget popular-tag-widget">
                       <h5 class="widget-title">Type d'impression</h5>
                       <div class="tags">
-                        <a >Impression directe quadri</a>
-                        <a >Impression directe quadri + vernis mélangé avec encre</a>
-                        <a  class="active">Impression directe quadri + vernis sélectif</a>
-                        <a >Impression directe quadri + blanc</a>
-                        <a >Impression directe quadri + blanc + vernis
-                        </a>
-                        <a >
-                          Adhésif</a>
+                        <a data-action="click->recap#change">Impression directe quadri</a>
+                        <a data-action="click->recap#change">Impression directe quadri + vernis mélangé avec encre</a>
+                        <a  data-action="click->recap#change">Impression directe quadri + vernis sélectif</a>
+                        <a data-action="click->recap#change">Impression directe quadri + blanc</a>
+                        <a data-action="click->recap#change">Impression directe quadri + blanc + vernis</a>
+                        <a data-action="click->recap#change">Adhésif</a>
                         </div>
                       </div>
                       <!-- End Single Widget -->
@@ -67,8 +66,8 @@
                       <div class="widget popular-tag-widget">
                         <h5 class="widget-title">Nombre de faces</h5>
                         <div class="tags">
-                          <a  class="active">Quadri recto</a>
-                          <a >Quadri recto / verso</a>
+                          <a  data-action="click->recap#change">Quadri recto</a>
+                          <a data-action="click->recap#change">Quadri recto / verso</a>
                         </div>
                       </div>
                       <!-- End Single Widget -->
@@ -77,8 +76,8 @@
                       <div class="widget popular-tag-widget">
                         <h5 class="widget-title">Type d'éclairage</h5>
                         <div class="tags">
-                          <a  class="active">Eclairage direct</a>
-                          <a >Eclairage indirect</a>
+                          <a  data-action="click->recap#change">Eclairage direct</a>
+                          <a data-action="click->recap#change">Eclairage indirect</a>
                         </div>
                       </div>
                       <!-- End Single Widget -->
@@ -87,7 +86,7 @@
                       <div class="widget popular-tag-widget">
                         <h5 class="widget-title" >Matière</h5>
                         <div class="tags">
-                          <a  class="active">PVC 19 mm</a>
+                          <a  data-action="click->recap#change">PVC 19 mm</a>
                         </div>
                       </div>
                       <!-- End Single Widget -->
@@ -96,9 +95,9 @@
                       <div class="widget popular-tag-widget">
                         <h5 class="widget-title">Type de LED</h5>
                         <div class="tags">
-                          <a >LED à point</a>
-                          <a  class="active">LED 3 points</a>
-                          <a >MiNéon</a>
+                          <a data-action="click->recap#change">LED à point</a>
+                          <a  data-action="click->recap#change">LED 3 points</a>
+                          <a data-action="click->recap#change">MiNéon</a>
                         </div>
                       </div>
                       <!-- End Single Widget -->
@@ -107,10 +106,10 @@
                       <div class="widget popular-tag-widget">
                         <h5 class="widget-title">Alimentation</h5>
                         <div class="tags">
-                          <a >35 W</a>
-                          <a >60 W</a>
-                          <a  class="active">100 W</a>
-                          <a >200 W</a>
+                          <a data-action="click->recap#change">35 W</a>
+                          <a data-action="click->recap#change">60 W</a>
+                          <a  data-action="click->recap#change">100 W</a>
+                          <a data-action="click->recap#change">200 W</a>
                         </div>
                       </div>
                       <!-- End Single Widget -->
@@ -119,8 +118,8 @@
                       <div class="widget popular-tag-widget">
                         <h5 class="widget-title">Interpompier</h5>
                         <div class="tags">
-                          <a  class="active">Avec</a>
-                          <a >Sans</a>
+                          <a  data-action="click->recap#change">Avec</a>
+                          <a data-action="click->recap#change">Sans</a>
                         </div>
                       </div>
                       <!-- End Single Widget -->
@@ -129,8 +128,8 @@
                       <div class="widget popular-tag-widget">
                         <h5 class="widget-title">Découpe</h5>
                         <div class="tags">
-                          <a >Ronde</a>
-                          <a  class="active">Lettre simple</a>
+                          <a data-action="click->recap#change">Ronde</a>
+                          <a  data-action="click->recap#change">Lettre simple</a>
                         </div>
                       </div>
                       <!-- End Single Widget -->
@@ -139,9 +138,9 @@
                       <div class="widget popular-tag-widget">
                         <h5 class="widget-title">Fixation lettre</h5>
                         <div class="tags">
-                          <a >Sans</a>
+                          <a data-action="click->recap#change">Sans</a>
                           <a  class="active">Entretoises + gabaris de pose</a>
-                          <a >Double face + gabaris de pose</a>
+                          <a data-action="click->recap#change">Double face + gabaris de pose</a>
 
                         </div>
                       </div>
@@ -159,47 +158,43 @@
               <div class="sidebar">
                 <!-- Start Single Widget -->
                 <div class="widget search-widget">
-                  <h5 class="widget-title">Uploader un logo</h5>
-                  <form action="#">
-                  <%= simple_form_for [@catalog,@order] do |f| %>
-                  <!-- [...] -->
-                  <%= f.input :photos, as: :file %>
-                  <!-- [...] -->
-                  <% end %>
-                  <br>
-                  <button type="submit"><i class="lni lni-upload-al">Submit</i></button>
-                  <br>
-                  <hr>
-                  Largeur : <input id="logo-width" type="text" class="mb-2" placeholder="Largeur du logo ..." /> cm
-                  Longeur : <input id="logo-height" type="text" class="mb-2" placeholder="Longueur du logo ..."> cm
-                  Position depuis le haut : <input id="logo-x" type="text" class="mb-2" placeholder="Origine x du logo ..."> cm <br>
-                  Position depuis la gauche : <input id="logo-y" type="text" class="mb-2" placeholder="Origine y du logo ..."> cm
+                  <h5 class="widget-title">Délai et livraison</h5>
+                  Date souhaitée : <br><input type="date" class="mb-2"/><br>
+                  Livraison Express: <input id="delivery-type" data-action="change->devis#change" type="checkbox" class="mb-2"> <br>
 
-                </form>
-              </div>
+                </div>
+                <!-- Start Single Widget -->
+                <div class="widget search-widget">
+                  <h5 class="widget-title">Détails du logo</h5>
+                  Largeur : <br><input id="logo-width" data-action="change->devis#change" type="text" class="mb-2" placeholder="Largeur du logo ..." disabled/> cm <br>
+                  Longeur : <br><input id="logo-height" data-action="change->devis#change" type="text" class="mb-2" placeholder="Longueur du logo ..." disabled> cm <br>
+                  Position depuis le haut : <br><input id="logo-x" type="text" class="mb-2" placeholder="Origine x du logo ..." disabled> cm <br>
+                  Position depuis la gauche : <br><input id="logo-y" type="text" class="mb-2" placeholder="Origine y du logo ..." disabled> cm <br>
+
+                </div>
               <!-- End Single Widget -->
               <!-- Start Single Widget -->
               <div class="widget search-widget">
                 <h5 class="widget-title">Quantité souhaitée et tailles</h5>
                 <form action="#">
 
-                  XS<input type="text" width="20px" placeholder="Quantité XS...">
-                  S<input type="text" placeholder="Quantité S...">
-                  M<input type="text" placeholder="Quantité M...">
-                  L<input type="text" placeholder="Quantité L...">
-                  XL<input type="text" placeholder="Quantité XL...">
-                  XLL<input type="text" placeholder="Quantité XXL...">
+                  XS<input id="qteXS" type="text" data-action="change->devis#change" width="20px" placeholder="Quantité XS...">
+                  S<input id="qteS" data-action="change->devis#change" type="text" placeholder="Quantité S...">
+                  M<input id="qteM" data-action="change->devis#change" type="text" placeholder="Quantité M...">
+                  L<input id="qteL" data-action="change->devis#change" type="text" placeholder="Quantité L...">
+                  XL<input id="qteXL" data-action="change->devis#change" type="text" placeholder="Quantité XL...">
+                  XLL<input id="qteXXL" data-action="change->devis#change" type="text" placeholder="Quantité XXL...">
 
 
                 </form>
               </div>
               <!-- End Single Widget -->
 
-              <!-- Start Single Widget -->
+              <!-- Start Single Widget
               <div class="widget categories-widget">
                 <h5 class="widget-title">Récap</h5>
                 <ul class="custom">
-                  <!-- <li>
+                   <li>
                     <strong>Graphisme :</strong>Vérification Des fichiers</a>
                   </li>
                   <li>
@@ -207,9 +202,9 @@
                   </li>
                   <li>
                     <a ><strong>Etc :</strong> More blabla</a>
-                  </li> -->
+                  </li>
                 </ul>
-              </div>
+              </div>-->
               <!-- End Single Widget -->
             </div>
           </aside>
@@ -255,5 +250,16 @@
         right: 32%;
         border: 1px solid;
       }
+      div.sticky {
+        position: -webkit-sticky; /* Safari */
+        position: sticky;
+        top: 0;
+        right: 0;
+        width: 120px;
+        height: 50px;
+        background-color: black;
+        color: white;
+      }
+
 
     </style>

@@ -56,6 +56,10 @@ export default class extends Controller {
           let { x, y } = event.target.dataset
           logoWidth.value = Math.round(logo.offsetWidth * standardWidth / clothing.offsetWidth)
           logoHeight.value = Math.round(logo.offsetHeight * standardHeight / clothing.offsetHeight)
+          let event2 = new Event('change');
+          logoWidth.dispatchEvent(event2);
+          logoHeight.dispatchEvent(event2);
+
           x = (parseFloat(x) || 0) + event.deltaRect.left
           y = (parseFloat(y) || 0) + event.deltaRect.top
           // console.log(logoWidth)
