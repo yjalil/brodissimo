@@ -24,8 +24,9 @@ export default class extends Controller {
 
     // Setting price
     let price = qteTotal * (3.5  + logoArea * 1.5/100)
+    price = Math.round(price*100)/100
     if (deliveryType.checked){
-      price += 10
+      price = price +  10
     }
     // Displaying price
     priceEl.innerText = `Devis :${price} €`
