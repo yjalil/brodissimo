@@ -20,31 +20,37 @@
 
     <div id="content">
 
-      <div class="products">
+      <div class="products" style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; grid-gap: 15px;">
 
         <%@catalog.each do |item| %>
-
+          <div class="card">
             <div class="shirt-card">
-                <div class="shirt-header">
-                    <div class="shirt-infos">
-                        <p class="pf_title_product">
-                          <%= link_to item.name, new_catalog_order_path(item.id) %>
-                        </p>
-                    </div>
-                </div>
-                <div class="shirt-image">
-                  <%= cl_image_tag item.photo.key %>
 
-                    <div class=" center_image" style="display: none;">
-                        <span class="material-icons">done</span>
-                    </div>
-                </div>
-        </div>
+                  <div class="shirt-image mx-4 mt-5">
+                    <%= cl_image_tag item.photo.key, class: "face front" %>
+                    <%= cl_image_tag item.photo.key, class: "face back" %>
 
+                      <div class=" center_image" style="display: none;">
+                          <span class="material-icons">done</span>
+                      </div>
+                  </div>
+
+                  <div class="shirt-header">
+                      <div class="shirt-infos">
+                          <p class="pf_title_product">
+                            <%= link_to item.name, new_catalog_order_path(item.id) %>
+                          </p>
+                      </div>
+                  </div>
+            </div>
+          </div>
 
         <%end%>
       </div>
     </div>
+
+
+
     <style>
       body {
           font-family: Arial, sans-serif;
@@ -97,4 +103,44 @@
       #content {
           padding: 20px;
       }
+
+
+
+      .shirt-card .shirt-image{
+        height: 140px;
+        width: 140px;
+        margin-bottom: 250px;
+      }
+
+      .shirt-header{
+        text-align: center;
+      }
+
+      .card {
+      perspective: 1000px;
+      position: relative;
+    }
+
+    .shirt-card {
+      transform-style: preserve-3d;
+      transition: transform 0.5s;
+    }
+
+    .card:hover .shirt-card {
+      transform: rotateY(180deg);
+    }
+
+      .face {
+      position: absolute;
+      backface-visibility: hidden;
+    }
+
+    .front {
+      background: url('front.png') center/cover;
+    }
+
+    .back {
+      background: url('back.png') center/cover;
+      transform: rotateY(180deg);
+    }
   </style>
