@@ -23,7 +23,7 @@
       <div class="products">
 
         <%@catalog.each do |item| %>
-
+          <%#  raise %>
             <div class="shirt-card">
                 <div class="shirt-header">
                     <div class="shirt-infos">
@@ -33,7 +33,7 @@
                     </div>
                 </div>
                 <div class="shirt-image">
-                  <%= cl_image_tag item.photo.key %>
+                  <%= image_tag item.front_photo_url %>
 
                     <div class=" center_image" style="display: none;">
                         <span class="material-icons">done</span>
