@@ -23,27 +23,20 @@
       <div class="products" style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; grid-gap: 15px;">
 
         <%@catalog.each do |item| %>
+          <%#  raise %>
+
           <div class="card">
-            <div class="shirt-card">
+            <div class="card-inner">
+              <div class="face front">
+                <%= image_tag item.front_photo_url%>
 
-                  <div class="shirt-image mx-4 mt-5">
-                    <%= cl_image_tag item.photo.key, class: "face front" %>
-                    <%= cl_image_tag item.photo.key, class: "face back" %>
-
-                      <div class=" center_image" style="display: none;">
-                          <span class="material-icons">done</span>
-                      </div>
-                  </div>
-
-                  <div class="shirt-header">
-                      <div class="shirt-infos">
-                          <p class="pf_title_product">
-                            <%= link_to item.name, new_catalog_order_path(item.id) %>
-                          </p>
-                      </div>
-                  </div>
+              </div>
+              <div class="face back">
+                <%= image_tag item.back_photo_url%>
+              </div>
             </div>
           </div>
+
 
         <%end%>
       </div>
@@ -110,6 +103,7 @@
         height: 140px;
         width: 140px;
         margin-bottom: 250px;
+        position: relative;
       }
 
       .shirt-header{
@@ -121,16 +115,27 @@
       position: relative;
     }
 
-    .shirt-card {
+  .card {
+      perspective: 1000px;
+      width: 300px;
+      height: 400px;
+      position: relative;
+    }
+
+    .card-inner {
+      width: 100%;
+      height: 100%;
       transform-style: preserve-3d;
       transition: transform 0.5s;
     }
 
-    .card:hover .shirt-card {
+    .card:hover .card-inner {
       transform: rotateY(180deg);
     }
 
-      .face {
+    .face {
+      width: 100%;
+      height: 100%;
       position: absolute;
       backface-visibility: hidden;
     }
@@ -143,4 +148,5 @@
       background: url('back.png') center/cover;
       transform: rotateY(180deg);
     }
+
   </style>
