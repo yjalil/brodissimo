@@ -62,14 +62,14 @@ Assignement.create!(
 
 # Seed data for front photo
 front_photo_public_id = 'front_photo_for_tshirt_123'
-front_photo_path = 'app/assets/images/black.png'
+front_photo_path = 'app/assets/images/black_front.png'
 
 # Upload front photo to Cloudinary
 front_photo = Cloudinary::Uploader.upload(front_photo_path)
 
 # Seed data for back photo
 back_photo_public_id = 'back_photo_for_tshirt_123'
-back_photo_path = 'app/assets/images/green.png'
+back_photo_path = 'app/assets/images/black_back.png'
 
 # Upload back photo to Cloudinary
 back_photo = Cloudinary::Uploader.upload(back_photo_path)
@@ -80,42 +80,3 @@ catalog_item = Catalog.new(name: front_photo_public_id, front_photo_url: front_p
 back_photo_url: back_photo['secure_url'])
 
 catalog_item.save!
-# file = File.open("app/assets/images/hoodie.png")
-# catalog_item = Catalog.new(name: "White Hoodie")
-# catalog_item.photo.attach(io: file, filename: "hoodie.png", content_type: "image/png")
-# catalog_item.save!
-
-# file = File.open("app/assets/images/green.png")
-# catalog_item = Catalog.new(name: "Green Hoodie")
-# catalog_item.photo.attach(io: file, filename: "green.png", content_type: "image/png")
-# catalog_item.save!
-
-# file = File.open("app/assets/images/yellow.png")
-# catalog_item = Catalog.new(name: "Yellow Hoodie")
-# catalog_item.photo.attach(io: file, filename: "Yellow.png", content_type: "image/png")
-# catalog_item.save!
-
-# file = File.open("app/assets/images/black.png")
-# catalog_item = Catalog.new(name: "Black Hoodie")
-# catalog_item.photo.attach(io: file, filename: "black.png", content_type: "image/png")
-# catalog_item.save!
-
-# file = File.open("app/assets/images/rose.png")
-# catalog_item = Catalog.new(name: "Rose Hoodie")
-# catalog_item.photo.attach(io: file, filename: "rose.png", content_type: "image/png")
-# catalog_item.save!
-
-# file = File.open("app/assets/images/gris.png")
-# catalog_item = Catalog.new(name: "Gris Hoodie")
-# catalog_item.photo.attach(io: file, filename: "gris.png", content_type: "image/png")
-# catalog_item.save!
-
-# file = File.open("app/assets/images/red.png")
-# catalog_item = Catalog.new(name: "Red Hoodie")
-# catalog_item.photo.attach(io: file, filename: "red.png", content_type: "image/png")
-# catalog_item.save!
-
-# file = File.open("app/assets/images/grey.png")
-# catalog_item = Catalog.new(name: "Grey Hoodie")
-# catalog_item.photo.attach(io: file, filename: "grey.png", content_type: "image/png")
-# catalog_item.save!
