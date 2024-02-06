@@ -1,24 +1,48 @@
 <div data-controller="interact recap devis">
-    <div class="button sticky">
+<div id="stepper" class="d-flex justify-content-center fixed-top">
+
+  <div id="step1" class="step active">
+      <span class="step-text"><i class="fas fa-check"></i></span>
+  </div>
+  <div class="step-description">Choisissez un modèle</div>
+
+
+
+  <div class="connector active"></div>
+  <div id="step2" class="step active">
+      <span class="step-text"><i class="fas fa-check"></i></span>
+  </div>
+  <div class="step-description">Uploadez votre logo</div>
+
+
+  <div class="connector active"></div>
+  <div id="step3" class="step active">
+      <span class="step-text"><i class="fas fa-cogs"></i></span>
+  </div>
+  <div class="step-description">Paramétrez votre commande</div>
+  </div>
+<!-- ---------------------------------------------------   -->
+
+<section class="section blog-single">
+  <div class="container">
+    <div class="button sticky mb-4 rounded text-center">
       <a id="price" href="/dashboard" class="btn btn-alt" >Devis : <br> 0 € <i class="lni lni-arrow-right"></i></a>
   </div>
-    <section class="section blog-single">
-      <div class="container">
-        <div class="row">
+    <div class="row">
           <div class="col-lg-8 col-md-12 col-12">
             <div class="single-inner">
               <div class="post-details">
                 <div class="main-content-head">
                   <div class="post-thumbnils">
 
-                    <div id="clothing" >
-                      <div id="logo-zone">
-                        <% if @order.type_photo == "Face" %>
+                    <% if @order.type_photo == "Face" %>
 
-                        <div id="logo"><%= image_tag @catalog.front_photo_url%></div>
+                        <div id="clothing"><%= image_tag @catalog.front_photo_url%>
                         <% elsif @order.type_photo == "Dos" %>
-                          <div id="logo"><%= image_tag @catalog.back_photo_url%></div>
+                          <div id="clothing"><%= image_tag @catalog.back_photo_url%>
                         <% end %>
+                      <div id="logo-zone">
+                        <div id="logo"><%= cl_image_tag @order.photo.key %></div>
                       </div>
                     </div>
                   </div>
@@ -164,13 +188,18 @@
               <div class="widget search-widget">
                 <h5 class="widget-title">Quantité souhaitée et tailles</h5>
                 <form action="#">
-
-                  <input id="qteXS" type="text" data-action="change->devis#change" width="20px" placeholder="Quantité XS..."> XS<br>
-                  <input id="qteS" data-action="change->devis#change" type="text" placeholder="Quantité S..."> S<br>
-                  <input id="qteM" data-action="change->devis#change" type="text" placeholder="Quantité M..."> M<br>
-                  <input id="qteL" data-action="change->devis#change" type="text" placeholder="Quantité L..."> L<br>
-                  <input id="qteXL" data-action="change->devis#change" type="text" placeholder="Quantité XL..."> XL<br>
-                  <input id="qteXXL" data-action="change->devis#change" type="text" placeholder="Quantité XXL..."> XLL<br>
+                  XS
+                  <input id="qteXS" type="text" data-action="change->devis#change" width="20px" placeholder="Quantité XS..."> <br>
+                  S
+                  <input id="qteS" data-action="change->devis#change" type="text" placeholder="Quantité S..."> <br>
+                  M
+                  <input id="qteM" data-action="change->devis#change" type="text" placeholder="Quantité M..."> <br>
+                  L
+                  <input id="qteL" data-action="change->devis#change" type="text" placeholder="Quantité L..."> <br>
+                  XL
+                  <input id="qteXL" data-action="change->devis#change" type="text" placeholder="Quantité XL..."> <br>
+                  XXL
+                  <input id="qteXXL" data-action="change->devis#change" type="text" placeholder="Quantité XXL..."> <br>
 
 
                 </form>

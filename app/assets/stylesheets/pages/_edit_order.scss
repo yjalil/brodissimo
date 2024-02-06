@@ -1,9 +1,9 @@
-
 /*======================================
 Blog CSS
 ========================================*/
 .blog-section {
     background-color: var(--white-color);
+    margin-top: 140px;
 
     .section-title {
         margin-bottom: 50px;
@@ -139,6 +139,7 @@ Blog CSS
 /* News Details */
 .blog-single {
     background: var(--white-color);
+    margin-top: 200px;
 
     .main-content-head {
         @media #{$laptop,$desktop} {
@@ -826,10 +827,15 @@ blockquote {
 div.sticky {
   position: -webkit-sticky; /* Safari */
   position: sticky;
-  top: 0;
+  top: 90px;
   right: 0;
   width: 120px;
   height: 50px;
   background-color: black;
   color: white;
+  z-index: 100;
+}
+#price{
+  color: white;
+
 }
