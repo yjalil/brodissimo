@@ -1,100 +1,49 @@
-    <div id="stepper">
+
+<div class="container">
+    <div id="stepper" class="d-flex justify-content-center fixed-top">
+
         <div id="step1" class="step active">
-            <span class="step-text">1</span>
+            <span class="step-text"><i class="far fa-file-image"></i></span>
         </div>
         <div class="step-description">Choisissez un modèle</div>
 
-        <div class="connector"></div>
+
+
+        <div class="connector active"></div>
         <div id="step2" class="step">
-            <span class="step-text">2</span>
+            <span class="step-text"><i class="fas fa-upload"></i></span>
         </div>
         <div class="step-description">Uploaddez votre logo</div>
 
+
         <div class="connector"></div>
         <div id="step3" class="step">
-            <span class="step-text">3</span>
+            <span class="step-text"><i class="fas fa-cogs"></i></span>
         </div>
         <div class="step-description">Paramétrez votre commande</div>
     </div>
 
 
-    <div id="content">
+    <div class="products" style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; grid-gap: 15px;">
 
-      <div class="products">
+      <%@catalog.each do |item| %>
+        <%#  raise %>
+        <%= link_to new_catalog_order_path(item.id) do %>
+        <div class="card">
+          <div class="card-inner">
+            <div class="face front">
+              <%= image_tag item.front_photo_url%>
 
-        <%@catalog.each do |item| %>
-
-            <div class="shirt-card">
-                <div class="shirt-header">
-                    <div class="shirt-infos">
-                        <p class="pf_title_product">
-                          <%= link_to item.name, new_catalog_order_path(item.id) %>
-                        </p>
-                    </div>
-                </div>
-                <div class="shirt-image">
-                  <%= cl_image_tag item.photo.key %>
-
-                    <div class=" center_image" style="display: none;">
-                        <span class="material-icons">done</span>
-                    </div>
-                </div>
+            </div>
+            <div class="face back">
+              <%= image_tag item.back_photo_url%>
+            </div>
+          </div>
         </div>
 
-
         <%end%>
-      </div>
+
+      <%end%>
     </div>
-    <style>
-      body {
-          font-family: Arial, sans-serif;
-          margin: 0;
-          padding: 0;
-      }
 
-      #stepper {
-          background-color: #f4f4f4;
-          padding: 20px;
-          text-align: center;
-          display: flex;
-          justify-content: space-between;
-          margin: 0 20px;
-      }
-
-      .step {
-          width: 30px;
-          height: 30px;
-          background-color: #e0e0e0;
-          border-radius: 50%;
-          position: relative;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-      }
-
-      .step.active {
-          background-color: green;
-      }
-
-      .step-text {
-          color: white;
-          font-size: 14px;
-      }
-
-      .step-description {
-          margin-top: 5px;
-          font-size: 12px;
-      }
-
-      .connector {
-          height: 2px;
-          background-color: #e0e0e0;
-          width: 50%;
-          align-self: center;
-      }
-
-      #content {
-          padding: 20px;
-      }
-  </style>
+</div>

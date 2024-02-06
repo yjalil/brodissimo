@@ -1,14 +1,18 @@
-// Graphical variables
-@import "config/fonts";
-@import "config/colors";
-@import "config/bootstrap_variables";
 
 // External libraries
 @import "bootstrap";
 @import "font-awesome";
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 
-// Your CSS partials
+// Graphical variables
+@import "config/colors";
+// @import "config/fonts";
+@import "config/general";
+
+@import "config/bootstrap_responsive_variables";
+
+// Components
 @import "components/index";
+
+// Pages
 @import "pages/index";
-@import "variables";
-@import "blog";

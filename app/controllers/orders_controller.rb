@@ -45,7 +45,7 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(:photo)
+    params.require(:order).permit(:photo,:type_photo)
   end
 
 end

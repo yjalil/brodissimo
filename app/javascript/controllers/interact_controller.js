@@ -3,6 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="interact"
 export default class extends Controller {
   connect() {
+    console.log("connected")
     const position = { x: 0, y: 0 }
     const standardWidth = 140
     const standardHeight = 70
@@ -14,7 +15,7 @@ export default class extends Controller {
     let logo= document.getElementById("logo")
     let logoZone= document.getElementById("logo-zone")
 
-    // console.log(clothing.offsetWidth)
+    console.log(clothing.offsetWidth)
     // console.log(clothing.offsetHeight)
     // console.log(logo.offsetWidth)
     // console.log(logo.offsetHeight)

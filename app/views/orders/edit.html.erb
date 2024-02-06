@@ -1,38 +1,49 @@
 <div data-controller="interact recap devis">
-<!-- Start Breadcrumbs -->
-    <div class="breadcrumbs">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-6 offset-lg-3 col-md-12 col-12">
-            <div class="breadcrumbs-content">
-              <h1 class="page-title">Demande de devis</h1>
-              <ul class="breadcrumb-nav">
-                <li><a href="index.html">Accueil</a></li>
-                <li>Demande de devis</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End Breadcrumbs -->
-    <div class="button sticky">
+<div id="stepper" class="d-flex justify-content-center fixed-top">
+
+  <div id="step1" class="step active">
+      <span class="step-text"><i class="fas fa-check"></i></span>
+  </div>
+  <div class="step-description">Choisissez un modèle</div>
+
+
+
+  <div class="connector active"></div>
+  <div id="step2" class="step active">
+      <span class="step-text"><i class="fas fa-check"></i></span>
+  </div>
+  <div class="step-description">Uploadez votre logo</div>
+
+
+  <div class="connector active"></div>
+  <div id="step3" class="step active">
+      <span class="step-text"><i class="fas fa-cogs"></i></span>
+  </div>
+  <div class="step-description">Paramétrez votre commande</div>
+  </div>
+<!-- ---------------------------------------------------   -->
+
+<section class="section blog-single">
+  <div class="container">
+    <div class="button sticky mb-4 rounded text-center">
       <a id="price" href="/dashboard" class="btn btn-alt" >Devis : <br> 0 € <i class="lni lni-arrow-right"></i></a>
   </div>
-    <section class="section blog-single">
-      <div class="container">
-        <div class="row">
+    <div class="row">
           <div class="col-lg-8 col-md-12 col-12">
             <div class="single-inner">
               <div class="post-details">
                 <div class="main-content-head">
                   <div class="post-thumbnils">
 
-                    <div id="clothing" >
+                    <% if @order.type_photo == "Face" %>
+
+                        <div id="clothing"><%= image_tag @catalog.front_photo_url%>
+                        <% elsif @order.type_photo == "Dos" %>
+                          <div id="clothing"><%= image_tag @catalog.back_photo_url%>
+                        <% end %>
                       <div id="logo-zone">
                         <div id="logo"><%= cl_image_tag @order.photo.key %></div>
                       </div>
-                      <%= cl_image_tag @catalog.photo.key %>
                     </div>
                   </div>
                   <div class="detail-inner">
@@ -177,13 +188,18 @@
               <div class="widget search-widget">
                 <h5 class="widget-title">Quantité souhaitée et tailles</h5>
                 <form action="#">
-
-                  XS<input id="qteXS" type="text" data-action="change->devis#change" width="20px" placeholder="Quantité XS...">
-                  S<input id="qteS" data-action="change->devis#change" type="text" placeholder="Quantité S...">
-                  M<input id="qteM" data-action="change->devis#change" type="text" placeholder="Quantité M...">
-                  L<input id="qteL" data-action="change->devis#change" type="text" placeholder="Quantité L...">
-                  XL<input id="qteXL" data-action="change->devis#change" type="text" placeholder="Quantité XL...">
-                  XLL<input id="qteXXL" data-action="change->devis#change" type="text" placeholder="Quantité XXL...">
+                  XS
+                  <input id="qteXS" type="text" data-action="change->devis#change" width="20px" placeholder="Quantité XS..."> <br>
+                  S
+                  <input id="qteS" data-action="change->devis#change" type="text" placeholder="Quantité S..."> <br>
+                  M
+                  <input id="qteM" data-action="change->devis#change" type="text" placeholder="Quantité M..."> <br>
+                  L
+                  <input id="qteL" data-action="change->devis#change" type="text" placeholder="Quantité L..."> <br>
+                  XL
+                  <input id="qteXL" data-action="change->devis#change" type="text" placeholder="Quantité XL..."> <br>
+                  XXL
+                  <input id="qteXXL" data-action="change->devis#change" type="text" placeholder="Quantité XXL..."> <br>
 
 
                 </form>
@@ -213,53 +229,3 @@
     </section>
     <!-- End Blog Singel Area -->
 </div>
-
-    <style>
-      #logo {
-        min-width: 50px;
-        max-width: calc(100vw - 2rem);
-        min-height: 50px;
-        align-items: center;
-        justify-content: center;
-        border-radius: 0.75rem;
-        touch-action: none;
-        white-space: pre-wrap;
-        border-style: solid;
-        border-color: black;
-        position: absolute;
-        z-index: 1;
-        top: 0;
-        left: 0;
-      }
-      #clothing {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 0.75rem;
-        touch-action: none;
-        white-space: pre-wrap;
-        border-style: solid;
-        border-color: black;
-      }
-      #logo-zone {
-        width: 37%;
-        height: 47%;
-        position: absolute;
-        top: 15%;
-        right: 32%;
-        border: 1px solid;
-      }
-      div.sticky {
-        position: -webkit-sticky; /* Safari */
-        position: sticky;
-        top: 0;
-        right: 0;
-        width: 120px;
-        height: 50px;
-        background-color: black;
-        color: white;
-      }
-
-
-    </style>
