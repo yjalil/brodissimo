@@ -28,7 +28,7 @@
 
       <%@catalog.each do |item| %>
         <%#  raise %>
-
+        <%= link_to new_catalog_order_path(item.id) do %>
         <div class="card">
           <div class="card-inner">
             <div class="face front">
@@ -41,6 +41,7 @@
           </div>
         </div>
 
+        <%end%>
 
       <%end%>
     </div>
