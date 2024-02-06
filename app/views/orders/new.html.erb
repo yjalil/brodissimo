@@ -16,29 +16,32 @@
   </div>
   <!-- End Breadcrumbs -->
 
-<div class="body">
 
-  <div id="stepper">
-          <div id="step1" class="step">
-              <span class="step-text">1</span>
-          </div>
-          <div class="step-description">Choisissez un modèle</div>
+  <div id="stepper" class="d-flex justify-content-center fixed-top">
 
-          <div class="connector"></div>
-          <div id="step2" class="step active">
-              <span class="step-text">2</span>
-          </div>
-          <div class="step-description">Uploaddez votre logo</div>
-
-          <div class="connector"></div>
-          <div id="step3" class="step">
-              <span class="step-text">3</span>
-          </div>
-          <div class="step-description">Paramétrez votre commande</div>
-      </div>
+        <div id="step1" class="step active">
+            <span class="step-text"><i class="fas fa-check"></i></span>
+        </div>
+        <div class="step-description">Choisissez un modèle</div>
 
 
-      <div id="content">
+
+        <div class="connector active"></div>
+        <div id="step2" class="step active">
+            <span class="step-text"><i class="fas fa-upload"></i></span>
+        </div>
+        <div class="step-description">Uploaddez votre logo</div>
+
+
+        <div class="connector"></div>
+        <div id="step3" class="step">
+            <span class="step-text"><i class="fas fa-cogs"></i></span>
+        </div>
+        <div class="step-description">Paramétrez votre commande</div>
+    </div>
+
+
+  <div id="content">
     <!-- Start Account Sign In Area -->
     <div class="account-login section">
         <div class="container">
@@ -72,61 +75,5 @@
         </div>
     </div>
     <!-- End Account Sign In Area -->
+  </div>
 
-
-</div>
-
-
-   <style>
-        .body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        #stepper {
-            background-color: #f4f4f4;
-            padding: 20px;
-            text-align: center;
-            display: flex;
-            justify-content: space-between;
-            margin: 0 20px;
-        }
-
-        .step {
-            width: 30px;
-            height: 30px;
-            background-color: #e0e0e0;
-            border-radius: 50%;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .step.active {
-            background-color: green;
-        }
-
-        .step-text {
-            color: white;
-            font-size: 14px;
-        }
-
-        .step-description {
-            margin-top: 5px;
-            font-size: 12px;
-        }
-
-        .connector {
-            height: 2px;
-            background-color: #e0e0e0;
-            width: 50%;
-            align-self: center;
-        }
-
-        #content {
-            padding: 20px;
-        }
-    </style>
