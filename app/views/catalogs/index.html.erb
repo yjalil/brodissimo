@@ -1,152 +1,49 @@
-    <div id="stepper">
+
+<div class="container">
+    <div id="stepper" class="d-flex justify-content-center fixed-top">
+
         <div id="step1" class="step active">
-            <span class="step-text">1</span>
+            <span class="step-text"><i class="far fa-file-image"></i></span>
         </div>
         <div class="step-description">Choisissez un modèle</div>
 
-        <div class="connector"></div>
+
+
+        <div class="connector active"></div>
         <div id="step2" class="step">
-            <span class="step-text">2</span>
+            <span class="step-text"><i class="fas fa-upload"></i></span>
         </div>
         <div class="step-description">Uploaddez votre logo</div>
 
+
         <div class="connector"></div>
         <div id="step3" class="step">
-            <span class="step-text">3</span>
+            <span class="step-text"><i class="fas fa-cogs"></i></span>
         </div>
         <div class="step-description">Paramétrez votre commande</div>
     </div>
 
 
-    <div id="content">
+    <div class="products" style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; grid-gap: 15px;">
 
-      <div class="products" style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; grid-gap: 15px;">
+      <%@catalog.each do |item| %>
+        <%#  raise %>
 
-        <%@catalog.each do |item| %>
-          <%#  raise %>
+        <div class="card">
+          <div class="card-inner">
+            <div class="face front">
+              <%= image_tag item.front_photo_url%>
 
-          <div class="card">
-            <div class="card-inner">
-              <div class="face front">
-                <%= image_tag item.front_photo_url%>
-
-              </div>
-              <div class="face back">
-                <%= image_tag item.back_photo_url%>
-              </div>
+            </div>
+            <div class="face back">
+              <%= image_tag item.back_photo_url%>
             </div>
           </div>
+        </div>
 
 
-        <%end%>
-      </div>
+      <%end%>
     </div>
 
+</div>
 
-
-    <style>
-      body {
-          font-family: Arial, sans-serif;
-          margin: 0;
-          padding: 0;
-      }
-
-      #stepper {
-          background-color: #f4f4f4;
-          padding: 20px;
-          text-align: center;
-          display: flex;
-          justify-content: space-between;
-          margin: 0 20px;
-      }
-
-      .step {
-          width: 30px;
-          height: 30px;
-          background-color: #e0e0e0;
-          border-radius: 50%;
-          position: relative;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-      }
-
-      .step.active {
-          background-color: green;
-      }
-
-      .step-text {
-          color: white;
-          font-size: 14px;
-      }
-
-      .step-description {
-          margin-top: 5px;
-          font-size: 12px;
-      }
-
-      .connector {
-          height: 2px;
-          background-color: #e0e0e0;
-          width: 50%;
-          align-self: center;
-      }
-
-      #content {
-          padding: 20px;
-      }
-
-
-
-      .shirt-card .shirt-image{
-        height: 140px;
-        width: 140px;
-        margin-bottom: 250px;
-        position: relative;
-      }
-
-      .shirt-header{
-        text-align: center;
-      }
-
-      .card {
-      perspective: 1000px;
-      position: relative;
-    }
-
-  .card {
-      perspective: 1000px;
-      width: 300px;
-      height: 400px;
-      position: relative;
-    }
-
-    .card-inner {
-      width: 100%;
-      height: 100%;
-      transform-style: preserve-3d;
-      transition: transform 0.5s;
-    }
-
-    .card:hover .card-inner {
-      transform: rotateY(180deg);
-    }
-
-    .face {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      backface-visibility: hidden;
-    }
-
-    .front {
-      background: url('front.png') center/cover;
-    }
-
-    .back {
-      background: url('back.png') center/cover;
-      transform: rotateY(180deg);
-    }
-
-  </style>
