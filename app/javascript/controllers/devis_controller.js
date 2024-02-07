@@ -10,16 +10,16 @@ export default class extends Controller {
     // Delivery type
     const deliveryType = document.getElementById("input_type_livraison")
     // Quantities
-    const qteXS = document.getElementById("qteXS")
-    const qteS = document.getElementById("qteS")
-    const qteM = document.getElementById("qteM")
-    const qteL = document.getElementById("qteL")
-    const qteXL = document.getElementById("qteXL")
-    const qteXXL = document.getElementById("qteXXL")
+    const qteXS = document.getElementById("input_qte_xs")
+    const qteS = document.getElementById("input_qte_s")
+    const qteM = document.getElementById("input_qte_m")
+    const qteL = document.getElementById("input_qte_l")
+    const qteXL = document.getElementById("input_qte_xl")
+    const qteXXL = document.getElementById("input_qte_xxl")
     const qteTotal = Number(qteXS.value)+Number(qteS.value)+Number(qteM.value)+Number(qteL.value)+Number(qteXL.value)+Number(qteXXL.value)
     // Logo Size
-    const logoWidth = document.getElementById("logo-width")
-    const logoHeight = document.getElementById("logo-height")
+    const logoWidth = document.getElementById("input_logo_width")
+    const logoHeight = document.getElementById("input_logo_height")
     const logoArea = Number(logoWidth.value) * Number(logoHeight.value)
 
     // Setting price

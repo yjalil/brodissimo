@@ -78,7 +78,7 @@
         <!-- ----------------------Hidden Form-----------------------------   -->
 
         <div class="button sticky mb-4 rounded text-center">
-          <a id="price" href="/dashboard" class="btn btn-alt" >Devis : <br> 0 € <i class="lni lni-arrow-right"></i></a>
+          <a id="price" type="submit" form="hidden_form" class="btn btn-alt" >Devis : <br> 0 € <i class="lni lni-arrow-right"></i></a>
 
         </div>
         <form id="hiddenForm" type="hidden">
@@ -139,8 +139,8 @@
                       <div class="widget popular-tag-widget">
                         <h5 class="widget-title">Nombre de faces</h5>
                         <div class="tags">
-                          <a  data-action="click->recap#change" id="input_nbr_faces">Quadri recto</a>
-                          <a data-action="click->recap#change" id="input_nbr_faces">Quadri recto / verso</a>
+                          <a  data-action="click->recap#change" id="input_nombre_faces">Quadri recto</a>
+                          <a data-action="click->recap#change" id="input_nombre_faces">Quadri recto / verso</a>
                         </div>
                       </div>
                       <!-- End Single Widget -->
@@ -239,10 +239,10 @@
                 <!-- Start Single Widget -->
                 <div class="widget search-widget">
                   <h5 class="widget-title">Détails du logo</h5>
-                  Largeur : <br><input id="logo-width" data-action="change->devis#change change->recap#change" type="text" class="mb-2" placeholder="Largeur du logo ..." disabled/> cm <br>
-                  Longeur : <br><input id="logo-height" data-action="change->devis#change change->recap#change" type="text" class="mb-2" placeholder="Longueur du logo ..." disabled> cm <br>
-                  Position depuis le haut : <br><input id="logo-x" data-action="change->recap#change" type="text" class="mb-2" placeholder="Origine x du logo ..." disabled> cm <br>
-                  Position depuis la gauche : <br><input id="logo-y" data-action="change->recap#change" type="text" class="mb-2" placeholder="Origine y du logo ..." disabled> cm <br>
+                  Largeur : <br><input id="input_logo_width" data-action="change->devis#change change->recap#change" type="text" class="mb-2" placeholder="Largeur du logo ..." disabled/> cm <br>
+                  Longeur : <br><input id="input_logo_height" data-action="change->devis#change change->recap#change" type="text" class="mb-2" placeholder="Longueur du logo ..." disabled> cm <br>
+                  Position depuis le haut : <br><input id="input_logo_x" data-action="change->recap#change" type="text" class="mb-2" placeholder="Origine x du logo ..." disabled> cm <br>
+                  Position depuis la gauche : <br><input id="input_logo_y" data-action="change->recap#change" type="text" class="mb-2" placeholder="Origine y du logo ..." disabled> cm <br>
 
                 </div>
                 <!-- End Single Widget -->
@@ -251,17 +251,17 @@
                   <h5 class="widget-title">Quantité souhaitée et tailles</h5>
                   <form action="#">
                     XS
-                    <input id="qteXS" type="text" data-action="change->devis#change change->recap#change" width="20px" placeholder="Quantité XS..."> <br>
+                    <input id="input_qte_xs" type="text" data-action="change->devis#change change->recap#change" width="20px" placeholder="Quantité XS..."> <br>
                     S
-                    <input id="qteS" data-action="change->devis#change change->recap#change" type="text" placeholder="Quantité S..."> <br>
+                    <input id="input_qte_s" data-action="change->devis#change change->recap#change" type="text" placeholder="Quantité S..."> <br>
                     M
-                    <input id="qteM" data-action="change->devis#change change->recap#change" type="text" placeholder="Quantité M..."> <br>
+                    <input id="input_qte_m" data-action="change->devis#change change->recap#change" type="text" placeholder="Quantité M..."> <br>
                     L
-                    <input id="qteL" data-action="change->devis#change change->recap#change" type="text" placeholder="Quantité L..."> <br>
+                    <input id="input_qte_l" data-action="change->devis#change change->recap#change" type="text" placeholder="Quantité L..."> <br>
                     XL
-                    <input id="qteXL" data-action="change->devis#change change->recap#change" type="text" placeholder="Quantité XL..."> <br>
+                    <input id="input_qte_xl" data-action="change->devis#change change->recap#change" type="text" placeholder="Quantité XL..."> <br>
                     XXL
-                    <input id="qteXXL" data-action="change->devis#change change->recap#change" type="text" placeholder="Quantité XXL..."> <br>
+                    <input id="input_qte_xxl" data-action="change->devis#change change->recap#change" type="text" placeholder="Quantité XXL..."> <br>
 
 
                   </form>
