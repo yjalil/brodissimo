@@ -8,7 +8,7 @@ export default class extends Controller {
   change(element){
     const priceEl = document.getElementById("price")
     // Delivery type
-    const deliveryType = document.getElementById("delivery-type")
+    const deliveryType = document.getElementById("input_type_livraison")
     // Quantities
     const qteXS = document.getElementById("qteXS")
     const qteS = document.getElementById("qteS")

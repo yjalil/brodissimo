@@ -7,24 +7,19 @@ export default class extends Controller {
 
   }
   change(element) {
-    // const inputEl = document.querySelector('.popular-tag-widget')
-    // const title = inputEl.querySelector('.widget-title').innerText
-    // const recap = document.querySelector(".categories-widget")
-    // const recapArray = Array.from(recap.querySelectorAll('ul.custom > li'))
-    // const recap = Array.from(document.querySelector(".categories-widget").querySelectorAll("ul.custom > li"))
-    // console.log(recapArray[0].innerText[0])
+    const hidden_form =  document.getElementById("hiddenForm")
 
-    element.target.classList.toggle('active')
-    // if (!(element.target.classList.contains('active'))) {
-      // console.log('no active found')
-    //   const newitem = document.createElement('li')
-    // newitem.innerHTML = "<strong>Graphisme</strong> : Vérification"
-    // recap.appendChild( newitem)
+    Array.from(element.target.parentElement.children).forEach(item => {
 
+      item.classList.remove('active')
 
-    // }
-    // else {
-      // element.target.classList.remove('active')
+    });
+    element.target.classList.add('active')
+    const input_value = element.target.innerText
+    const hidden_input = document.createElement("input")
+    hidden_input.value = input_value
+    hidden_input.name = element.target.id.split('_').slice(1).join("_")
+
 
     }
     }
