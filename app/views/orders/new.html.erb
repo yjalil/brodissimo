@@ -47,9 +47,7 @@
 
             <div class="row">
               <%= f.input :type_photo, as: :radio_buttons, collection: ['Face', 'Dos'] %>
-
-            <textarea name="ticket-form-message" rows="3" class="form-control"
-            id="ticket-form-message" placeholder="Commentaires supplémentaires"></textarea>
+              <%= f.input :comment, as: :text, html: {class: "form-control", id: "ticket-form-message",placeholder: "Commentaires supplémentaires", rows: 3}  %>
 
             <div class="col-lg-4 col-md-10 col-8 mx-auto">
               <button type="submit" class="form-control">Etape Suivante</button>
