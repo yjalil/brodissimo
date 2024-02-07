@@ -42,7 +42,7 @@ background: url('front.png') center/cover;
 background: url('back.png') center/cover;
 transform: rotateY(180deg);
 }
-img {
+.card img {
   width: 100%;
   height: auto;
 }
