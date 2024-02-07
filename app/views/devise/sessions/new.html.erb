@@ -1,20 +1,38 @@
-<h2>Log in</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+
+<section class="ticket-section section-padding content">
+  <div class="section-overlay"></div>
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-lg-6 col-10 mx-auto">
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "custom-form ticket-form mb-5 mb-lg-0"}) do |f| %>
+        <h2 class="text-center mb-4">Se connecter</h2>
+
+        <div >
+          <%= f.input :email,
+                      :label => "Email",
+                      required: false,
+                      autofocus: true,
+                      input_html: { autocomplete: "email", class: "form-control" } %>
+          <%= f.input :password,
+                      :label => "Mot de passe",
+                      required: false,
+                      input_html: { autocomplete: "current-password", class: "form-control" } %>
+          <%= f.input :remember_me, :label => "Se souvenir de moi",  as: :boolean if devise_mapping.rememberable? %>
+
+          <div class="col-lg-4 col-md-10 col-8 mx-auto ">
+            <%= f.button :submit,
+          "Se connecter", class: "custom-btn align-center "  %>
+          </div>
+          <% end %>
+
+          <%= render "devise/shared/links" %>
+
+
+      </div>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</section>
