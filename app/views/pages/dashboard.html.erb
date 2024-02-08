@@ -1,128 +1,52 @@
-<!-- Start Breadcrumbs -->
- <div class="breadcrumbs">
-  <div class="container">
-      <div class="row align-items-center">
-          <div class="col-lg-6 offset-lg-3 col-md-12 col-12">
-              <div class="breadcrumbs-content">
-
-              </div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
+<div class="container padding-bottom-3x mb-1">
+        <div class="card mb-3">
+          <div class="p-4 text-center text-white text-lg bg-dark rounded-top"><span class="text-uppercase">Tracking Order No - </span><span class="text-medium">34VB5540K83</span></div>
+          <div class="d-flex flex-wrap flex-sm-nowrap justify-content-between py-3 px-2 bg-secondary">
+            <div class="w-100 text-center py-1 px-2"><span class="text-medium">Shipped Via:</span> UPS Ground</div>
+            <div class="w-100 text-center py-1 px-2"><span class="text-medium">Status:</span> Checking Quality</div>
+            <div class="w-100 text-center py-1 px-2"><span class="text-medium">Expected Date:</span> SEP 09, 2017</div>
           </div>
-      </div>
-  </div>
-</div>
-<!-- End Breadcrumbs -->
-
-
-<!-- Start dash Admin Area -->
-<section class="dash section">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <div class="section-title">
-          <h3 class="wow zoomIn" data-wow-delay=".2s">Dashboard d'administrateur</h3>
-          <h2 class="wow fadeInUp" data-wow-delay=".4s">Listes des ordres</h2>
-          <p class="wow fadeInUp" data-wow-delay=".6s"></p>
+          <div class="card-body">
+            <div class="steps d-flex flex-wrap flex-sm-nowrap justify-content-between padding-top-2x padding-bottom-1x">
+              <div class="step completed">
+                <div class="step-icon-wrap">
+                  <div class="step-icon"><i class="pe-7s-cart"></i></div>
+                </div>
+                <h4 class="step-title">Confirmed Order</h4>
+              </div>
+              <div class="step completed">
+                <div class="step-icon-wrap">
+                  <div class="step-icon"><i class="pe-7s-config"></i></div>
+                </div>
+                <h4 class="step-title">Processing Order</h4>
+              </div>
+              <div class="step completed">
+                <div class="step-icon-wrap">
+                  <div class="step-icon"><i class="pe-7s-medal"></i></div>
+                </div>
+                <h4 class="step-title">Quality Check</h4>
+              </div>
+              <div class="step">
+                <div class="step-icon-wrap">
+                  <div class="step-icon"><i class="pe-7s-car"></i></div>
+                </div>
+                <h4 class="step-title">Product Dispatched</h4>
+              </div>
+              <div class="step">
+                <div class="step-icon-wrap">
+                  <div class="step-icon"><i class="pe-7s-home"></i></div>
+                </div>
+                <h4 class="step-title">Product Delivered</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex flex-wrap flex-md-nowrap justify-content-center justify-content-sm-between align-items-center">
+          <div class="custom-control custom-checkbox mr-3">
+            <input class="custom-control-input" type="checkbox" id="notify_me" checked="">
+            <label class="custom-control-label" for="notify_me">Notify me when order is delivered</label>
+          </div>
+          <div class="text-left text-sm-right"><a class="btn btn-outline-primary btn-rounded btn-sm" href="orderDetails" data-toggle="modal" data-target="#orderDetails">View Order Details</a></div>
         </div>
       </div>
-    </div>
-
-    <div class="row">
-            <div class="col-lg-9 col-md-6 col-6">
-                <div class="accordion" id="accordionExample">
-                    <!-- Ene attente de devis -->
-                    
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="heading1">
-                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                              data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
-                              <pre class="title">Titre: <%= Order.first.title %>   Client: <%= Order.first.client.username %>    <%= Order.first.status %></pre>
-
-                              <i class="lni lni-plus"></i>
-                          </button>
-                      </h2>
-
-
-                      <div id="collapse1" class="accordion-collapse collapse" aria-labelledby="heading1"
-                          data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                                <!--here-->
-
-                          <div class="d-flex flex-row-reverse m-2">
-                            <a href="#" class="btn btn-danger">Refuser</a>
-                            <a href="#" class="btn btn-success mx-4">Accepter</a>
-                          </div>
-
-
-                          <div class="row">
-                              <div class="col-sm-8">
-                                <div class="card">
-                                  <div class="card-body">
-                                    <div class="sc-fde092b2-0 cHmBBd product-detail-content">
-                                      <h5>Récapitulatif</h5>
-                                      <div id="publicblock" class="sc-fde092b2-0 cHmBBd">
-                                        <div class="CatstockQuotation">
-                                          <div class="csqm-product-blocpublic">
-                                            <div class="CsPublicBox">
-                                              <div class="cspub-title">Lettre découpée lumineuse</div>
-                                              <div class="cspub-declinations">
-                                                <ul>
-                                                  <% if Order.first.present? %>
-                                                    <li><b>Graphisme</b> : <%= Order.first.graphisme %></li>
-                                                    <li><b>Type d'impression</b> : <%= Order.first.type_impression %></li>
-                                                    <li><b>Nombre de faces</b> : <%= Order.first.nombre_faces %></li>
-                                                    <li><b>Type d'éclairage</b> : <%= Order.first.type_eclairage %></li>
-                                                    <li><b>Matière</b> : <%= Order.first.matiere %></li>
-                                                    <li><b>Type de LED</b> : <%= Order.first.type_led %></li>
-                                                    <li><b>Alimentation</b> : <%= Order.first.alimentation %></li>
-                                                    <li><b>Interpompier</b> : <%= Order.first.interpompier %></li>
-                                                    <li><b>Découpe</b> : <%= Order.first.decoupe %></li>
-                                                    <li><b>Fixation lettre</b> : <%= Order.first.fixation_lettre %></li>
-                                                  <% else %>
-                                                    <li>Ordre n'existe pas!.</li>
-                                                  <% end %>
-                                                </ul>
-                                              </div>
-                                              <div class="cspub-calc-projects">
-                                                <div>
-                                                  <label><b>Projet</b> - <%= Order.first.projet_dimensions %></label>
-                                                  <br>Quantité 1- Surface : <%= Order.first.quantite_surface %>
-                                                </div>
-                                              </div>
-                                              <div class="cspub-calc-price">
-                                                <div>
-                                                  <span class="cspub-calc-price-exctax"><%= number_to_currency(Order.first.prix_ht, precision: 2) %> ht</span> - <span class="cspub-calc-price-inctax"><%= number_to_currency(Order.first.prix_ttc, precision: 2) %> ttc</span>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-
-                              <div class="col-sm-4">
-                                <div class="card">
-                                  <div class="card-body">
-                                    <div class="image wow fadeInLeft" data-wow-delay=".3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInLeft;">
-                                      <img src="https://via.placeholder.com/210x300" alt="#">
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-
-
-
-
-                        </div>
-                      </div>
-                    </div>
-                </div>
-            </div>
-    </div><br>
-  </div>
-</section>
-
-<!--/ End dash Admin Area -->

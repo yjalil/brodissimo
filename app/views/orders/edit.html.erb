@@ -78,14 +78,12 @@
         <!-- ----------------------Hidden Form-----------------------------   -->
 
         <div class="button sticky mb-4 rounded text-center">
-          <a id="price" type="submit" form="hidden_form" class="btn btn-alt" >Devis : <br> 0 € <i class="lni lni-arrow-right"></i></a>
+          <a id="price" type="submit" form="edit_order_<%= @order.id %>" class="btn btn-alt" data-action="click->recap#submitForm" >Devis : <br> 0 € <i class="lni lni-arrow-right"></i></a>
 
         </div>
-        <form id="hiddenForm" type="hidden">
-
-        </form>
-
-
+<%= simple_form_for [@catalog, @order], html: {"data-recap-target": "hiddenForm" , class: "d-none"} do |f| %>
+<%=f.submit %>
+<% end %>
 
 <!-- --------------------End Hidden form-------------------------------   -->
 
