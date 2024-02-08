@@ -10,12 +10,12 @@ export default class extends Controller {
     // Delivery type
     const deliveryType = document.getElementById("input_type_livraison")
     // Quantities
-    const qteXS = document.getElementById("input_qte_xs")
-    const qteS = document.getElementById("input_qte_s")
-    const qteM = document.getElementById("input_qte_m")
-    const qteL = document.getElementById("input_qte_l")
-    const qteXL = document.getElementById("input_qte_xl")
-    const qteXXL = document.getElementById("input_qte_xxl")
+    const qteXS = document.getElementById("input_quantite_xs")
+    const qteS = document.getElementById("input_quantite_s")
+    const qteM = document.getElementById("input_quantite_m")
+    const qteL = document.getElementById("input_quantite_l")
+    const qteXL = document.getElementById("input_quantite_xl")
+    const qteXXL = document.getElementById("input_quantite_xxl")
     const qteTotal = Number(qteXS.value)+Number(qteS.value)+Number(qteM.value)+Number(qteL.value)+Number(qteXL.value)+Number(qteXXL.value)
     // Logo Size
     const logoWidth = document.getElementById("input_logo_width")
