@@ -1,0 +1,187 @@
+<!-- -------------------------------------------
+                Nav bar
+------------------------------------------- -->
+
+<style>
+.navbar {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 90%;
+  margin: 30px auto;
+  border-radius: 20px;
+}
+</style>
+
+<nav class="navbar navbar-expand-lg sticky-wrapper is-sticky ">
+  <div class="container">
+    <!-- <a class="navbar-brand" href="index.html"> -->
+      <%= link_to root_path, class:"navbar-brand" do %>
+      <!-- <img src="./images/logo.png" alt="" width="auto" height="75"> -->
+      <%= image_tag 'logo.png', height:75, width: "auto" %>
+      <% end %>
+      <!-- </a> -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav align-items-lg-center ms-auto me-lg-5">
+
+        <li class="nav-item">
+          <a class="nav-link click-scroll" href="http://127.0.0.1:3000/">Accueil</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link click-scroll" href="#section_1">A propos de nous</a>
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+<!-- -------------------------------------------
+      End Nav bar        &    start about
+------------------------------------------- -->
+
+<section class="section-padding mt-5" id="section_1">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-6 col-12 mb-4 mb-lg-0 d-flex align-items-center">
+                <div class="services-info">
+                    <h2 class="text-dark mb-4">A propos de nous</h2>
+
+                    <p class="text-dark">Brodessimo est une entreprise spécialisée dans tous les types de broderie,
+                    offrant des services de haute qualité pour répondre aux besoins de ses clients.
+                    Depuis sa création, Brodessimo s'engage à fournir des produits personnalisés et uniques,
+                    alliant tradition et innovation dans chaque création.</p>
+
+                    <p class="text-dark">Grâce à nos partenariats soutenus avec JobInTech et Le Wagon, nous disposons
+                    de ressources de formation de pointe qui soutiennent notre succès et nous permettent d'innover
+                    constamment dans le domaine du développement web.</p>
+                </div>
+            </div>
+
+
+            <div class="col-lg-6 col-12 d-flex justify-content-end align-items-center">
+                <div>
+                  <%= image_tag 'lewagon.png', height:100, width: "auto" %>
+                </div>
+
+                <div>
+                  <%= image_tag 'jobintech.png', height:75, width: "auto" %>
+                </div>
+
+            </div>
+
+        </div>
+      </div>
+
+</section>
+
+
+<!-- Start Team Area -->
+    <section class="team section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title">
+                        <h3 class="wow zoomIn" data-wow-delay=".2s">Expert Team</h3>
+                        <h2 class="wow fadeInUp" data-wow-delay=".4s">Meet Our Team</h2>
+                        <p class="wow fadeInUp" data-wow-delay=".6s">Dynamique et déterminée, notre équipe de développeurs web juniors est façonnée
+                        par une passion commune pour la technologie et le design. Formés par les programmes d'excellence de JobInTech et
+                        l'Institut Le Wagon, nous combinons nos compétences pour créer des expériences digitales uniques et pertinentes.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-12 wow fadeInUp" data-wow-delay=".3s">
+                    <!-- Start Single Team -->
+                    <div class="single-team">
+                        <div class="team-image">
+                            <img src="https://via.placeholder.com/400x400" alt="#">
+                        </div>
+                        <div class="cont">
+                            <h4>Rachid Sabir
+                                <span></span>
+                            </h4>
+                            <ul class="social">
+                                <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled" style="color:green"></i></a></li>
+                                <li><a href="javascript:void(0)"><i class="lni lni-instagram"></i></a></li>
+                                <li><a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a></li>
+                                <li><a href="javascript:void(0)"><i class="lni lni-linkedin-original"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- End Single Team -->
+                </div>
+                <div class="col-lg-3 col-md-6 col-12 wow fadeInUp" data-wow-delay=".5s">
+                    <!-- Start Single Team -->
+                    <div class="single-team">
+                        <div class="team-image">
+                            <img src="https://via.placeholder.com/400x400" alt="#">
+                        </div>
+                        <div class="cont">
+                            <h4>Abdeljalil Yahya
+                                <span></span>
+                            </h4>
+                            <ul class="social">
+                                <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a></li>
+                                <li><a href="javascript:void(0)"><i class="lni lni-instagram"></i></a></li>
+                                <li><a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a></li>
+                                <li><a href="javascript:void(0)"><i class="lni lni-linkedin-original"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- End Single Team -->
+                </div>
+                <div class="col-lg-3 col-md-6 col-12 wow fadeInUp" data-wow-delay=".7s">
+                    <!-- Start Single Team -->
+                    <div class="single-team">
+                        <div class="team-image">
+                            <img src="https://via.placeholder.com/400x400" alt="#">
+                        </div>
+                        <div class="cont">
+                            <h4>Oussama
+                                <span></span>
+                            </h4>
+                            <ul class="social">
+                                <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a></li>
+                                <li><a href="javascript:void(0)"><i class="lni lni-instagram"></i></a></li>
+                                <li><a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a></li>
+                                <li><a href="javascript:void(0)"><i class="lni lni-linkedin-original"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- End Single Team -->
+                </div>
+                <div class="col-lg-3 col-md-6 col-12 wow fadeInUp" data-wow-delay=".9s">
+                    <!-- Start Single Team -->
+                    <div class="single-team">
+                        <div class="team-image">
+                            <img src="https://via.placeholder.com/400x400" alt="#">
+                        </div>
+                        <div class="cont">
+                            <h4>Khaoula Ahmouchi
+                                <span></span>
+                            </h4>
+                            <ul class="social">
+                                <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a></li>
+                                <li><a href="javascript:void(0)"><i class="lni lni-instagram"></i></a></li>
+                                <li><a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a></li>
+                                <li><a href="javascript:void(0)"><i class="lni lni-linkedin-original"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- End Single Team -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/ End Team Area -->
+
+<!-- -------------------------------------------
+                End about
+------------------------------------------- -->
