@@ -1,7 +1,7 @@
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #f8f8f8;
-  color: #333;
+  background-color: var(--bg-abt-color);
+  color: var(--dark-color);
   margin: 0;
   padding: 0;
 }
@@ -9,30 +9,24 @@ body {
 h1, h2 {
   text-align: center;
   margin: 20px 0;
+  font-weight: bold;
+  color: var(--grey-color);
 }
 
 .about-container {
   text-align: center;
-  color: #888;
-  background-color: #fff;
+  color: var(--grey-to-white);
+  background-color: var(--white-color);
   margin-top: 180px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-  font-weight: bold;
-  color: #555;
-}
-
-h2 {
-  color: #555;
-}
 
 /* Team Section Styles */
 .team-container {
   text-align: center;
   padding: 20px;
-  background-color: #fff;
+  background-color: var(--white-color);
   margin: 20px auto;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -40,12 +34,12 @@ h2 {
 .team-title {
   font-size: 24px;
   font-weight: bold;
-  color: #333;
+  color: var(--dark-color);
 }
 
 .description {
  font-size: 18px;
- color: #333;
+ color: var(--dark-color);
  line-height: 1.5em;
  margin: 0 0 1em;
  padding: 1em;
@@ -63,12 +57,12 @@ h2 {
   margin: 10px 0 5px;
   font-size: 18px;
   font-weight: bold;
-  color: #333;
+  color: var(--dark-color);
 }
 
 .cont span {
   font-size: 14px;
-  color: #888;
+  color: var(--grey-to-white);
 }
 
 .social {
@@ -87,10 +81,10 @@ h2 {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: #007bff;
+  background-color: var(--blue-color);
   text-align: center;
   line-height: 30px;
-  color: #fff;
+  color: var(--white-color);
 }
 .partners-section {
 text-align: center;
@@ -109,18 +103,18 @@ height: auto;
 .welcome{
 text-align: center;
 padding: 20px;
-background-color: #f8f8f8;
+background-color: var(--white-color);
 margin: 20px auto;
 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .partner h3 {
 margin-top: 10px;
 font-size: 1.5rem;
-color: #333;
+color: var(--dark-color);
 }
 
 .partner p {
 margin-top: 10px;
 font-size: 1rem;
-color: #666;
+color: var(grey-color);
 }
