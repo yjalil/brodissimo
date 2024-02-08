@@ -1,86 +1,96 @@
 
 <!-- -----------------------------------------
-Navbar
------------------------------------------ -->
-<nav class="navbar navbar-expand-lg sticky-wrapper is-sticky bg-dark mb-2">
-  <div class="container">
-    <!-- <a class="navbar-brand" href="index.html"> -->
-      <%= link_to root_path, class:"navbar-brand" do %>
-      <!-- <img src="./images/logo.png" alt="" width="auto" height="75"> -->
-      <%= image_tag 'logo.png', height:75, width: "auto" %>
-      <% end %>
-      <!-- </a> -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  Navbar
+  ----------------------------------------- -->
+  <nav class="navbar navbar-expand-lg sticky-wrapper is-sticky bg-dark mb-2">
+    <div class="container">
+      <!-- <a class="navbar-brand" href="index.html"> -->
+        <%= link_to root_path, class:"navbar-brand" do %>
+        <!-- <img src="./images/logo.png" alt="" width="auto" height="75"> -->
+        <%= image_tag 'logo.png', height:75, width: "auto" %>
+        <% end %>
+        <!-- </a> -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav align-items-lg-center ms-auto me-lg-5">
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav align-items-lg-center ms-auto me-lg-5">
 
-        <li class="nav-item">
-          <a class="nav-link click-scroll">Accueil</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link click-scroll">Tableau de bord</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link click-scroll">A propos de nous</a>
-        </li>
-        <% if user_signed_in? %>
-              <li>
-              <%= link_to destroy_user_session_path, data: {turbo_method: :delete} do %>
-              Se déconnecter <i class="bi bi-box-arrow-right"></i>
-              <% end %>
+          <li class="nav-item">
+            <a class="nav-link click-scroll">Accueil</a>
           </li>
-        <% else %>
+
+          <li class="nav-item">
+            <a class="nav-link click-scroll">Tableau de bord</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link click-scroll">A propos de nous</a>
+          </li>
+          <% if user_signed_in? %>
+          <li>
+            <%= link_to destroy_user_session_path, data: {turbo_method: :delete} do %>
+            Se déconnecter <i class="bi bi-box-arrow-right"></i>
+            <% end %>
+          </li>
+          <% else %>
           <li class="nav-item">
             <%= link_to "Se connecter", new_user_session_path %>
           </li>
-        <% end %>
-      </ul>
+          <% end %>
+        </ul>
 
+      </div>
     </div>
-  </div>
-</nav>
-<!-- ----------------------------------------------
-Stepper
----------------------------------------------- -->
-
-
-<div data-controller="interact recap devis">
-<div id="stepper" class="d-flex justify-content-center fixed-top">
-
-  <div id="step1" class="step active">
-      <span class="step-text"><i class="fas fa-check"></i></span>
-  </div>
-  <div class="step-description">Choisissez un modèle</div>
+  </nav>
 
 
 
-  <div class="connector active"></div>
-  <div id="step2" class="step active">
-      <span class="step-text"><i class="fas fa-check"></i></span>
-  </div>
-  <div class="step-description">Uploadez votre logo</div>
+  <div data-controller="interact recap devis">
+    <div id="stepper" class="d-flex justify-content-center fixed-top">
+
+      <div id="step1" class="step active">
+        <span class="step-text"><i class="fas fa-check"></i></span>
+      </div>
+      <div class="step-description">Choisissez un modèle</div>
 
 
-  <div class="connector active"></div>
-  <div id="step3" class="step active">
-      <span class="step-text"><i class="fas fa-cogs"></i></span>
-  </div>
-  <div class="step-description">Paramétrez votre commande</div>
-  </div>
-<!-- ---------------------------------------------------   -->
 
-<section class="section blog-single">
-  <div class="container">
-    <div class="button sticky mb-4 rounded text-center">
-      <a id="price" href="/dashboard" class="btn btn-alt" >Devis : <br> 0 € <i class="lni lni-arrow-right"></i></a>
-  </div>
-    <div class="row">
+      <div class="connector active"></div>
+      <div id="step2" class="step active">
+        <span class="step-text"><i class="fas fa-check"></i></span>
+      </div>
+      <div class="step-description">Uploadez votre logo</div>
+
+
+      <div class="connector active"></div>
+      <div id="step3" class="step active">
+        <span class="step-text"><i class="fas fa-cogs"></i></span>
+      </div>
+      <div class="step-description">Paramétrez votre commande</div>
+    </div>
+    <!-- ---------------------------------------------------   -->
+
+    <section class="section blog-single">
+      <div class="container">
+        <!-- ----------------------Hidden Form-----------------------------   -->
+
+        <div class="button sticky mb-4 rounded text-center">
+          <a id="price" type="submit" form="hidden_form" class="btn btn-alt" >Devis : <br> 0 € <i class="lni lni-arrow-right"></i></a>
+
+        </div>
+        <form id="hiddenForm" type="hidden">
+
+        </form>
+
+
+
+<!-- --------------------End Hidden form-------------------------------   -->
+
+
+        <div class="row">
           <div class="col-lg-8 col-md-12 col-12">
             <div class="single-inner">
               <div class="post-details">
@@ -89,38 +99,38 @@ Stepper
 
                     <% if @order.type_photo == "Face" %>
 
-                        <div id="clothing"><%= image_tag @catalog.front_photo_url%>
-                        <% elsif @order.type_photo == "Dos" %>
-                          <div id="clothing"><%= image_tag @catalog.back_photo_url%>
+                    <div id="clothing"><%= image_tag @catalog.front_photo_url%>
+                      <% elsif @order.type_photo == "Dos" %>
+                      <div id="clothing"><%= image_tag @catalog.back_photo_url%>
                         <% end %>
-                      <div id="logo-zone">
-                        <div id="logo"><%= cl_image_tag @order.photo.key %></div>
+                        <div id="logo-zone">
+                          <div id="logo"><%= cl_image_tag @order.photo.key %></div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="detail-inner">
-                    <h3>Détails techniques</h3>
-                    <!-- Start Single Widget -->
-                    <div class="widget popular-tag-widget">
-                      <h5 class="widget-title">Graphisme</h5>
-                      <div class="tags">
-                        <a data-action="click->recap#change">Vérification des fichiers</a>
-                        <a data-action="click->recap#change">Montage éléments</a>
-                        <a data-action="click->recap#change">Graphisme Complet</a>
+                    <div class="detail-inner">
+                      <h3>Détails techniques</h3>
+                      <!-- Start Single Widget -->
+                      <div class="widget popular-tag-widget">
+                        <h5 class="widget-title">Graphisme</h5>
+                        <div class="tags">
+                          <a data-action="click->recap#change" id="input_graphisme">Vérification des fichiers</a>
+                          <a data-action="click->recap#change" id="input_graphisme">Montage éléments</a>
+                          <a data-action="click->recap#change" id="input_graphisme">Graphisme Complet</a>
+                        </div>
                       </div>
-                    </div>
-                    <!-- End Single Widget -->
+                      <!-- End Single Widget -->
 
-                    <!-- Start Single Widget -->
-                    <div class="widget popular-tag-widget">
-                      <h5 class="widget-title">Type d'impression</h5>
-                      <div class="tags">
-                        <a data-action="click->recap#change">Impression directe quadri</a>
-                        <a data-action="click->recap#change">Impression directe quadri + vernis mélangé avec encre</a>
-                        <a  data-action="click->recap#change">Impression directe quadri + vernis sélectif</a>
-                        <a data-action="click->recap#change">Impression directe quadri + blanc</a>
-                        <a data-action="click->recap#change">Impression directe quadri + blanc + vernis</a>
-                        <a data-action="click->recap#change">Adhésif</a>
+                      <!-- Start Single Widget -->
+                      <div class="widget popular-tag-widget">
+                        <h5 class="widget-title">Type d'impression</h5>
+                        <div class="tags">
+                          <a data-action="click->recap#change" id="input_type_impression">Impression directe quadri</a>
+                          <a data-action="click->recap#change" id="input_type_impression">Impression directe quadri + vernis mélangé avec encre</a>
+                          <a  data-action="click->recap#change" id="input_type_impression">Impression directe quadri + vernis sélectif</a>
+                          <a data-action="click->recap#change" id="input_type_impression">Impression directe quadri + blanc</a>
+                          <a data-action="click->recap#change" id="input_type_impression">Impression directe quadri + blanc + vernis</a>
+                          <a data-action="click->recap#change" id="input_type_impression">Adhésif</a>
                         </div>
                       </div>
                       <!-- End Single Widget -->
@@ -129,8 +139,8 @@ Stepper
                       <div class="widget popular-tag-widget">
                         <h5 class="widget-title">Nombre de faces</h5>
                         <div class="tags">
-                          <a  data-action="click->recap#change">Quadri recto</a>
-                          <a data-action="click->recap#change">Quadri recto / verso</a>
+                          <a  data-action="click->recap#change" id="input_nombre_faces">Quadri recto</a>
+                          <a data-action="click->recap#change" id="input_nombre_faces">Quadri recto / verso</a>
                         </div>
                       </div>
                       <!-- End Single Widget -->
@@ -139,8 +149,8 @@ Stepper
                       <div class="widget popular-tag-widget">
                         <h5 class="widget-title">Type d'éclairage</h5>
                         <div class="tags">
-                          <a  data-action="click->recap#change">Eclairage direct</a>
-                          <a data-action="click->recap#change">Eclairage indirect</a>
+                          <a  data-action="click->recap#change" id="input_type_eclairage">Eclairage direct</a>
+                          <a data-action="click->recap#change" id="input_type_eclairage">Eclairage indirect</a>
                         </div>
                       </div>
                       <!-- End Single Widget -->
@@ -149,7 +159,7 @@ Stepper
                       <div class="widget popular-tag-widget">
                         <h5 class="widget-title" >Matière</h5>
                         <div class="tags">
-                          <a  data-action="click->recap#change">PVC 19 mm</a>
+                          <a  data-action="click->recap#change" id="input_matiere">PVC 19 mm</a>
                         </div>
                       </div>
                       <!-- End Single Widget -->
@@ -158,9 +168,9 @@ Stepper
                       <div class="widget popular-tag-widget">
                         <h5 class="widget-title">Type de LED</h5>
                         <div class="tags">
-                          <a data-action="click->recap#change">LED à point</a>
-                          <a  data-action="click->recap#change">LED 3 points</a>
-                          <a data-action="click->recap#change">MiNéon</a>
+                          <a data-action="click->recap#change" id="input_type_led">LED à point</a>
+                          <a  data-action="click->recap#change" id="input_type_led">LED 3 points</a>
+                          <a data-action="click->recap#change" id="input_type_led">MiNéon</a>
                         </div>
                       </div>
                       <!-- End Single Widget -->
@@ -169,10 +179,10 @@ Stepper
                       <div class="widget popular-tag-widget">
                         <h5 class="widget-title">Alimentation</h5>
                         <div class="tags">
-                          <a data-action="click->recap#change">35 W</a>
-                          <a data-action="click->recap#change">60 W</a>
-                          <a  data-action="click->recap#change">100 W</a>
-                          <a data-action="click->recap#change">200 W</a>
+                          <a data-action="click->recap#change" id="input_alimentation">35 W</a>
+                          <a data-action="click->recap#change" id="input_alimentation">60 W</a>
+                          <a  data-action="click->recap#change" id="input_alimentation">100 W</a>
+                          <a data-action="click->recap#change" id="input_alimentation">200 W</a>
                         </div>
                       </div>
                       <!-- End Single Widget -->
@@ -181,8 +191,8 @@ Stepper
                       <div class="widget popular-tag-widget">
                         <h5 class="widget-title">Interpompier</h5>
                         <div class="tags">
-                          <a  data-action="click->recap#change">Avec</a>
-                          <a data-action="click->recap#change">Sans</a>
+                          <a  data-action="click->recap#change" id="input_interpompier">Avec</a>
+                          <a data-action="click->recap#change" id="input_interpompier">Sans</a>
                         </div>
                       </div>
                       <!-- End Single Widget -->
@@ -191,8 +201,8 @@ Stepper
                       <div class="widget popular-tag-widget">
                         <h5 class="widget-title">Découpe</h5>
                         <div class="tags">
-                          <a data-action="click->recap#change">Ronde</a>
-                          <a  data-action="click->recap#change">Lettre simple</a>
+                          <a data-action="click->recap#change" id="input_decoupe">Ronde</a>
+                          <a  data-action="click->recap#change" id="input_decoupe">Lettre simple</a>
                         </div>
                       </div>
                       <!-- End Single Widget -->
@@ -201,9 +211,9 @@ Stepper
                       <div class="widget popular-tag-widget">
                         <h5 class="widget-title">Fixation lettre</h5>
                         <div class="tags">
-                          <a data-action="click->recap#change">Sans</a>
-                          <a  class="active">Entretoises + gabaris de pose</a>
-                          <a data-action="click->recap#change">Double face + gabaris de pose</a>
+                          <a data-action="click->recap#change" id="input_fixation_lettre">Sans</a>
+                          <a  class="active" id="input_fixation_lettre">Entretoises + gabaris de pose</a>
+                          <a data-action="click->recap#change" id="input_fixation_lettre">Double face + gabaris de pose</a>
 
                         </div>
                       </div>
@@ -222,62 +232,62 @@ Stepper
                 <!-- Start Single Widget -->
                 <div class="widget search-widget">
                   <h5 class="widget-title">Délai et livraison</h5>
-                  Date souhaitée : <br><input type="date" class="mb-2"/><br>
-                  Livraison Express: <input id="delivery-type" data-action="change->devis#change" type="checkbox" class="mb-2"> <br>
+                  Date souhaitée : <br><input type="date"  data-action="change->recap#change" class="mb-2" id="input_date_desired"/><br>
+                  Livraison Express: <input id="input_type_livraison" data-action="change->devis#change change->recap#change" type="checkbox" class="mb-2"> <br>
 
                 </div>
                 <!-- Start Single Widget -->
                 <div class="widget search-widget">
                   <h5 class="widget-title">Détails du logo</h5>
-                  Largeur : <br><input id="logo-width" data-action="change->devis#change" type="text" class="mb-2" placeholder="Largeur du logo ..." disabled/> cm <br>
-                  Longeur : <br><input id="logo-height" data-action="change->devis#change" type="text" class="mb-2" placeholder="Longueur du logo ..." disabled> cm <br>
-                  Position depuis le haut : <br><input id="logo-x" type="text" class="mb-2" placeholder="Origine x du logo ..." disabled> cm <br>
-                  Position depuis la gauche : <br><input id="logo-y" type="text" class="mb-2" placeholder="Origine y du logo ..." disabled> cm <br>
+                  Largeur : <br><input id="input_logo_width" data-action="change->devis#change change->recap#change" type="text" class="mb-2" placeholder="Largeur du logo ..." disabled/> cm <br>
+                  Longeur : <br><input id="input_logo_height" data-action="change->devis#change change->recap#change" type="text" class="mb-2" placeholder="Longueur du logo ..." disabled> cm <br>
+                  Position depuis le haut : <br><input id="input_logo_x" data-action="change->recap#change" type="text" class="mb-2" placeholder="Origine x du logo ..." disabled> cm <br>
+                  Position depuis la gauche : <br><input id="input_logo_y" data-action="change->recap#change" type="text" class="mb-2" placeholder="Origine y du logo ..." disabled> cm <br>
 
                 </div>
-              <!-- End Single Widget -->
-              <!-- Start Single Widget -->
-              <div class="widget search-widget">
-                <h5 class="widget-title">Quantité souhaitée et tailles</h5>
-                <form action="#">
-                  XS
-                  <input id="qteXS" type="text" data-action="change->devis#change" width="20px" placeholder="Quantité XS..."> <br>
-                  S
-                  <input id="qteS" data-action="change->devis#change" type="text" placeholder="Quantité S..."> <br>
-                  M
-                  <input id="qteM" data-action="change->devis#change" type="text" placeholder="Quantité M..."> <br>
-                  L
-                  <input id="qteL" data-action="change->devis#change" type="text" placeholder="Quantité L..."> <br>
-                  XL
-                  <input id="qteXL" data-action="change->devis#change" type="text" placeholder="Quantité XL..."> <br>
-                  XXL
-                  <input id="qteXXL" data-action="change->devis#change" type="text" placeholder="Quantité XXL..."> <br>
+                <!-- End Single Widget -->
+                <!-- Start Single Widget -->
+                <div class="widget search-widget">
+                  <h5 class="widget-title">Quantité souhaitée et tailles</h5>
+                  <form action="#">
+                    XS
+                    <input id="input_qte_xs" type="text" data-action="change->devis#change change->recap#change" width="20px" placeholder="Quantité XS..."> <br>
+                    S
+                    <input id="input_qte_s" data-action="change->devis#change change->recap#change" type="text" placeholder="Quantité S..."> <br>
+                    M
+                    <input id="input_qte_m" data-action="change->devis#change change->recap#change" type="text" placeholder="Quantité M..."> <br>
+                    L
+                    <input id="input_qte_l" data-action="change->devis#change change->recap#change" type="text" placeholder="Quantité L..."> <br>
+                    XL
+                    <input id="input_qte_xl" data-action="change->devis#change change->recap#change" type="text" placeholder="Quantité XL..."> <br>
+                    XXL
+                    <input id="input_qte_xxl" data-action="change->devis#change change->recap#change" type="text" placeholder="Quantité XXL..."> <br>
 
 
-                </form>
-              </div>
-              <!-- End Single Widget -->
+                  </form>
+                </div>
+                <!-- End Single Widget -->
 
-              <!-- Start Single Widget
-              <div class="widget categories-widget">
-                <h5 class="widget-title">Récap</h5>
-                <ul class="custom">
-                   <li>
-                    <strong>Graphisme :</strong>Vérification Des fichiers</a>
-                  </li>
-                  <li>
-                    <a ><strong>Type d'impression :</strong>Impression Directe Quadri + Vernis Sélectif</a>
-                  </li>
-                  <li>
-                    <a ><strong>Etc :</strong> More blabla</a>
-                  </li>
-                </ul>
-              </div>-->
-              <!-- End Single Widget -->
+                <!-- Start Single Widget
+                  <div class="widget categories-widget">
+                    <h5 class="widget-title">Récap</h5>
+                    <ul class="custom">
+                      <li>
+                        <strong>Graphisme :</strong>Vérification Des fichiers</a>
+                      </li>
+                      <li>
+                        <a ><strong>Type d'impression :</strong>Impression Directe Quadri + Vernis Sélectif</a>
+                      </li>
+                      <li>
+                        <a ><strong>Etc :</strong> More blabla</a>
+                      </li>
+                    </ul>
+                  </div>-->
+                  <!-- End Single Widget -->
+                </div>
+              </aside>
             </div>
-          </aside>
-        </div>
+          </div>
+        </section>
+        <!-- End Blog Singel Area -->
       </div>
-    </section>
-    <!-- End Blog Singel Area -->
-</div>

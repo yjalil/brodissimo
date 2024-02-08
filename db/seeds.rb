@@ -46,8 +46,6 @@ Order.create!(
   interpompier: "Sans",
   decoupe: "Ronde",
   fixation_lettre: "Sans",
-  projet_dimensions: "1000 x 1000 mm",
-  quantite_surface: "1 m²",
   prix_ht: 645.01,
   prix_ttc: 774.01
 )

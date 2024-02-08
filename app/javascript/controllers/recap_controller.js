@@ -4,27 +4,34 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
 
   connect() {
+    this.hidden_form = document.createElement("form");
+    this.hidden_form.id = "hidden_form"
+    this.hiddenForm.action = "<%= catalog_order_path %>";
+    this.hiddenForm.method = "PATCH"
 
   }
   change(element) {
-    // const inputEl = document.querySelector('.popular-tag-widget')
-    // const title = inputEl.querySelector('.widget-title').innerText
-    // const recap = document.querySelector(".categories-widget")
-    // const recapArray = Array.from(recap.querySelectorAll('ul.custom > li'))
-    // const recap = Array.from(document.querySelector(".categories-widget").querySelectorAll("ul.custom > li"))
-    // console.log(recapArray[0].innerText[0])
 
-    element.target.classList.toggle('active')
-    // if (!(element.target.classList.contains('active'))) {
-      // console.log('no active found')
-    //   const newitem = document.createElement('li')
-    // newitem.innerHTML = "<strong>Graphisme</strong> : Vérification"
-    // recap.appendChild( newitem)
+    Array.from(element.target.parentElement.children).forEach(item => {
 
+      item.classList.remove('active')
 
-    // }
-    // else {
-      // element.target.classList.remove('active')
+    });
+    element.target.classList.add('active')
+    const hidden_input = document.createElement("input")
+    hidden_input.value = element.target.innerText
+    hidden_input.name = element.target.id.split('_').slice(1).join("_")
+    let nameAttributeValue = hidden_input.getAttribute('name');
+    let existingChild = this.hidden_form.querySelector('[name="' + nameAttributeValue + '"]');
 
+    if (existingChild) {
+        this.hidden_form.replaceChild(hidden_input, existingChild);
     }
+    else {
+        this.hidden_form.appendChild(hidden_input);
     }
+    console.log(element.target.innerText)
+    console.log(hidden_input.value)
+    console.log(this.hidden_form)
+  }
+}

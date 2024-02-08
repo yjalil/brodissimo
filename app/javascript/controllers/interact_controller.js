@@ -7,10 +7,10 @@ export default class extends Controller {
     const position = { x: 0, y: 0 }
     const standardWidth = 140
     const standardHeight = 70
-    let logoWidth = document.getElementById("logo-width")
-    let logoHeight = document.getElementById("logo-height")
-    let logox = document.getElementById("logo-x")
-    let logoy = document.getElementById("logo-y")
+    let logoWidth = document.getElementById("input_logo_width")
+    let logoHeight = document.getElementById("input_logo_height")
+    let logox = document.getElementById("input_logo_x")
+    let logoy = document.getElementById("input_logo_y")
     let clothing= document.getElementById("clothing")
     let logo= document.getElementById("logo")
     let logoZone= document.getElementById("logo-zone")
