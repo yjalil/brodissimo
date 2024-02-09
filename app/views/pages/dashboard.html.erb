@@ -43,6 +43,12 @@
           <% end %>
 
         </li>
+        <li>
+          <%= link_to destroy_user_session_path, data: {turbo_method: :delete} do %>
+          Se déconnecter <i class="bi bi-box-arrow-right"></i>
+          <% end %>
+        </li>
+
 
       </ul>
 
@@ -58,29 +64,49 @@
   <div id ="content"class="container padding-bottom-3x mb-3 ">
     <% if @all_orders  %>
     <% @all_orders.each do |item| %>
-    <% statuses = ["Etude Dossier", "Validation Admin", "Signature BAT", "En Production", "Distribution", "Commande livrée"] %>
-<% item_status_index = statuses.find_index(item.status)
-<% case item_status_index
+    <% statuses = ["Etude Dossier", "Validation Admin", "Signature BAT", "En Production", "Distribution", "Commande livrée"]
+ item_status_index = statuses.find_index(item.status)
+ case item_status_index
 when 0
 etude_dossier_class = "step completed"
+validation_admin_class = "step"
+signature_bat_class = "step"
+en_production_class = "step"
+distribution_class = "step"
+commande_livree_class = "step"
+
 when 1
 etude_dossier_class = "step completed"
 validation_admin_class = "step completed"
+signature_bat_class = "step"
+en_production_class = "step"
+distribution_class = "step"
+commande_livree_class = "step"
+
 when 2
 etude_dossier_class = "step completed"
 validation_admin_class = "step completed"
-signature_bat = "step completed"
+signature_bat_class = "step completed"
+en_production_class = "step"
+distribution_class = "step"
+commande_livree_class = "step"
+
 when 3
 etude_dossier_class = "step completed"
 validation_admin_class = "step completed"
 signature_bat_class = "step completed"
 en_production_class = "step completed"
+distribution_class = "step"
+commande_livree_class = "step"
+
 when 4
 etude_dossier_class = "step completed"
 validation_admin_class = "step completed"
 signature_bat_class = "step completed"
 en_production_class = "step completed"
 distribution_class = "step completed"
+commande_livree_class = "step"
+
 when 5
 etude_dossier_class = "step completed"
 validation_admin_class = "step completed"
@@ -151,48 +177,70 @@ end %>
         </div>
       </div>
     </div>
-    <%end%>
-    <%end%>
-    <% if @my_orders  %>
+
+    <% end %>
+
+    <% elsif @my_orders  %>
     <% @my_orders.each do |item| %>
-    <% statuses = ["Etude Dossier", "Validation Admin", "Signature BAT", "En Production", "Distribution", "Commande livrée"] %>
-<% item_status_index = statuses.find_index(item.status)
-<% case item_status_index
-when 0
-etude_dossier_class = "step completed"
-when 1
-etude_dossier_class = "step completed"
-validation_admin_class = "step completed"
-when 2
-etude_dossier_class = "step completed"
-validation_admin_class = "step completed"
-signature_bat = "step completed"
-when 3
-etude_dossier_class = "step completed"
-validation_admin_class = "step completed"
-signature_bat_class = "step completed"
-en_production_class = "step completed"
-when 4
-etude_dossier_class = "step completed"
-validation_admin_class = "step completed"
-signature_bat_class = "step completed"
-en_production_class = "step completed"
-distribution_class = "step completed"
-when 5
-etude_dossier_class = "step completed"
-validation_admin_class = "step completed"
-signature_bat_class = "step completed"
-en_production_class = "step completed"
-distribution_class = "step completed"
-commande_livree_class = "step completed"
-else
-etude_dossier_class = "step"
-validation_admin_class = "step"
-signature_bat_class = "step"
-en_production_class = "step"
-distribution_class = "step"
-commande_livree_class = "step"
-end %>
+    <% statuses = ["Etude Dossier", "Validation Admin", "Signature BAT", "En Production", "Distribution", "Commande livrée"]
+    item_status_index = statuses.find_index(item.status)
+    case item_status_index
+   when 0
+   etude_dossier_class = "step completed"
+   validation_admin_class = "step"
+   signature_bat_class = "step"
+   en_production_class = "step"
+   distribution_class = "step"
+   commande_livree_class = "step"
+
+   when 1
+   etude_dossier_class = "step completed"
+   validation_admin_class = "step completed"
+   signature_bat_class = "step"
+   en_production_class = "step"
+   distribution_class = "step"
+   commande_livree_class = "step"
+
+   when 2
+   etude_dossier_class = "step completed"
+   validation_admin_class = "step completed"
+   signature_bat_class = "step completed"
+   en_production_class = "step"
+   distribution_class = "step"
+   commande_livree_class = "step"
+
+   when 3
+   etude_dossier_class = "step completed"
+   validation_admin_class = "step completed"
+   signature_bat_class = "step completed"
+   en_production_class = "step completed"
+   distribution_class = "step"
+   commande_livree_class = "step"
+
+   when 4
+   etude_dossier_class = "step completed"
+   validation_admin_class = "step completed"
+   signature_bat_class = "step completed"
+   en_production_class = "step completed"
+   distribution_class = "step completed"
+   commande_livree_class = "step"
+
+   when 5
+   etude_dossier_class = "step completed"
+   validation_admin_class = "step completed"
+   signature_bat_class = "step completed"
+   en_production_class = "step completed"
+   distribution_class = "step completed"
+   commande_livree_class = "step completed"
+   else
+   etude_dossier_class = "step"
+   validation_admin_class = "step"
+   signature_bat_class = "step"
+   en_production_class = "step"
+   distribution_class = "step"
+   commande_livree_class = "step"
+   end %>
+
     <div class="card w-100 mb-3">
       <div class="p-4 text-center text-white text-lg bg-dark rounded-top"><span class="text-uppercase">Suivi commande No - </span><span class="text-medium"><%= item.created_at.year.to_s + item.created_at.month.to_s + item.created_at.day.to_s + item.client.id.to_s + item.id.to_s %></span></div>
       <div class="d-flex flex-wrap flex-sm-nowrap justify-content-between py-3 px-2 bg-secondary">
@@ -248,6 +296,6 @@ end %>
         </div>
       </div>
     </div>
-    <%end%>
-    <%end%>
+    <% end %>
+    <% end %>
   </div>
