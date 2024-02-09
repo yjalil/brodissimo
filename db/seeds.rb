@@ -1,5 +1,6 @@
 require 'cloudinary'
 require 'open-uri'
+require 'date'
 
 Assignement.destroy_all
 Order.destroy_all
@@ -9,72 +10,66 @@ User.destroy_all
 
 
 User.create!(
-  email: "rachid.sabir_client@gmail.com",
-  password: "secret",
-  username: "Rachid Sabir"
+email: "client_1@gmail.com",
+password: "secret",
+username: "Client Example One",
+role: "client"
 )
 
 User.create!(
-  email: "jalil.yahy_client@gmail.com",
-  password: "secret",
-  username: "Jalil Yahy"
+email: "client_2@gmail.com",
+password: "secret",
+username: "Client Example Two",
+role: "client"
 )
-
 User.create!(
-  email: "jalil.yahy_worker@gmail.com",
-  password: "secret",
-  username: "JALIL YAHY"
+email: "admin@gmail.com",
+password: "secret",
+username: "Admin Brodissimo",
+role: "admin"
 )
 
-Machine.create!(
-  name: "brod_test_1",
-  description: "does nothing"
-)
+def create_catalogs(names)
+  names.each do |name|
+    # Seed data for front photo
+    front_photo_public_id = "front_photo_for_#{name}"
+    front_photo_path = "app/assets/images/#{name}_front.png"
 
-Order.create!(
-  client_id: User.first.id,
-  title: "Broderie Délicate",
-  status: "En attente",
+    # Upload front photo to Cloudinary
+    front_photo = Cloudinary::Uploader.upload(front_photo_path)
 
-  graphisme: "Vérification fichiers",
-  type_impression: "Impression directe quadri",
-  nombre_faces: "Quadri recto",
-  type_eclairage: "Eclairage direct",
-  matiere: "PVC 19 mm",
-  type_led: "LED à point",
-  alimentation: "Alimentation 35w",
-  interpompier: "Sans",
-  decoupe: "Ronde",
-  fixation_lettre: "Sans",
-  prix_ht: 645.01,
-  prix_ttc: 774.01
-)
+    # Seed data for back photo
+    back_photo_public_id = "back_photo_for_#{name}"
+    back_photo_path = "app/assets/images/#{name}_back.png"
 
-Assignement.create!(
-  worker_id: User.last.id,
-  order_id: Order.last.id,
-  machine_id: Machine.last.id,
-  fulldesign: "https://images.unsplash.com/photo-1584223746169-cb0aba6d2187?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-)
+    # Upload back photo to Cloudinary
+    back_photo = Cloudinary::Uploader.upload(back_photo_path)
+
+    # Create records in your database as needed
+
+    catalog_item = Catalog.new(name: name.split('_').join(' '), front_photo_url: front_photo['secure_url'],
+    back_photo_url: back_photo['secure_url'])
+
+    catalog_item.save!
+  end
+
+end
+
+create_catalogs(["black", "blue", "female_blue", "female_white", "grey", "mixed_grey"])
 
 
-# Seed data for front photo
-front_photo_public_id = 'front_photo_for_tshirt_123'
-front_photo_path = 'app/assets/images/black_front.png'
 
-# Upload front photo to Cloudinary
-front_photo = Cloudinary::Uploader.upload(front_photo_path)
+def create_orders
+  statuses = ["Etude Dossier", "Validation Admin", "Signature BAT", "En Production", "Distribution", "Commande livrée"]
+  t1 = Date.new(2024 , 2 ,9)
+  t2 = Date.new(2024, 2, 20)
+  statuses.each do |status|
+    Order.create!(
+      client_id: [1,2].sample,
+      status: status,
+      date_desired: rand(t1..t2),
+      item_id: [1..6].sample
+      )
 
-# Seed data for back photo
-back_photo_public_id = 'back_photo_for_tshirt_123'
-back_photo_path = 'app/assets/images/black_back.png'
-
-# Upload back photo to Cloudinary
-back_photo = Cloudinary::Uploader.upload(back_photo_path)
-
-# Create records in your database as needed
-
-catalog_item = Catalog.new(name: front_photo_public_id, front_photo_url: front_photo['secure_url'],
-back_photo_url: back_photo['secure_url'])
-
-catalog_item.save!
+  end
+end
