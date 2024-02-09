@@ -52,9 +52,12 @@ export default class extends Controller {
     newInput.name = name
     newInput.value = value
     this.hiddenFormTarget.appendChild(newInput)
+    const priceEl = document.getElementById("price")
+    this.hiddenFormTarget.appendChild(priceEl.value)
   }
 
   submitForm() {
     this.hiddenFormTarget.submit()
   }
+
 }

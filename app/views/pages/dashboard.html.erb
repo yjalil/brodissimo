@@ -1,64 +1,189 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
-<div class="container padding-bottom-3x mb-3">
-  <div class="card w-100 mb-3">
-    <div class="p-4 text-center text-white text-lg bg-dark rounded-top"><span class="text-uppercase">Suivi commande No - </span><span class="text-medium">34VB5540K83</span></div>
-    <div class="d-flex flex-wrap flex-sm-nowrap justify-content-between py-3 px-2 bg-secondary">
 
-      <div class="w-100 text-center py-1 px-2"><span class="text-medium">Téléchargement BAT:</span> <i class="pe-7s-download fa-2x bg-danger text-white rounded"></i></div>
-      <div class="w-100 text-center py-1 px-2"><span class="text-medium">Date livraison:</span> 29 FEV 2024</div>
+
+
+<style>
+  .navbar {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 90%;
+    margin: 30px auto;
+    border-radius: 20px;
+  }
+  #content {
+    margin-top: 150px !important;
+  }
+</style>
+
+
+<nav class="navbar navbar-expand-lg sticky-wrapper is-sticky ">
+  <div class="container">
+    <!-- <a class="navbar-brand" href="index.html"> -->
+      <%= link_to root_path, class:"navbar-brand" do %>
+      <!-- <img src="./images/logo.png" alt="" width="auto" height="75"> -->
+      <%= image_tag 'logo.png', height:75, width: "auto" %>
+      <% end %>
+      <!-- </a> -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav align-items-lg-center ms-auto me-lg-5">
+        <li class="nav-item">
+
+          <%= link_to root_path, class:"nav-link" do %>
+          Accueil
+          <% end %>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to about_path, class:"nav-link" do %>
+          A propos de nous
+          <% end %>
+
+        </li>
+
+      </ul>
+
     </div>
-    <div class="card-body">
-      <div class="steps d-flex flex-wrap flex-sm-nowrap justify-content-between padding-top-2x padding-bottom-1x">
-        <div class="step completed">
-          <div class="step-icon-wrap">
-            <div class="step-icon"><i class="pe-7s-hourglass"></i></div>
-          </div>
-          <h4 class="step-title">Etude Dossier</h4>
-        </div>
-        <div class="step completed">
-          <div class="step-icon-wrap">
-            <div class="step-icon"><i class="pe-7s-like2"></i></div>
-          </div>
-          <h4 class="step-title">Validation admin</h4>
-        </div>
-        <div class="step completed">
-          <div class="step-icon-wrap">
-            <div class="step-icon"><i class="pe-7s-pen"></i></div>
-          </div>
-          <h4 class="step-title">Signature BAT</h4>
-        </div>
-        <div class="step completed">
-          <div class="step-icon-wrap">
-            <div class="step-icon"><i class="pe-7s-diskette"></i></div>
-          </div>
-          <h4 class="step-title">Commande programme</h4>
-        </div>
+  </div>
+</nav>
 
-        <div class="step completed">
-          <div class="step-icon-wrap">
-            <div class="step-icon"><i class="pe-7s-config"></i></div>
+<!-- -------------------------------------------
+  End Nav bar        &    start about
+  ------------------------------------------- -->
+
+
+  <div id ="content"class="container padding-bottom-3x mb-3 ">
+    <% if @all_orders  %>
+    <% @all_orders.each do |item| %>
+    <div class="card w-100 mb-3">
+      <div class="p-4 text-center text-white text-lg bg-dark rounded-top"><span class="text-uppercase">Suivi commande No - </span><span class="text-medium"><%= item.created_at.year.to_s + item.created_at.month.to_s + item.created_at.day.to_s + item.client.id.to_s + item.id.to_s %></span></div>
+      <div class="d-flex flex-wrap flex-sm-nowrap justify-content-between py-3 px-2 bg-secondary">
+
+        <div class="w-100 text-center py-1 px-2"><span class="text-medium">Client :</span> <%= item.client.username %></div>
+        <div class="w-100 text-center py-1 px-2"><span class="text-medium">Date livraison :</span> <%= item.desired_date %></div>
+      </div>
+      <div class="card-body">
+        <div class="steps d-flex flex-wrap flex-sm-nowrap justify-content-between padding-top-2x padding-bottom-1x">
+          <div class="step completed">
+            <div class="step-icon-wrap">
+              <div class="step-icon"><i class="pe-7s-hourglass"></i></div>
+            </div>
+            <h4 class="step-title">Etude Dossier</h4>
           </div>
-          <h4 class="step-title">En production</h4>
-        </div>
-        <div class="step">
-          <div class="step-icon-wrap">
-            <div class="step-icon"><i class="pe-7s-car"></i></div>
+          <div class="step completed">
+            <div class="step-icon-wrap">
+              <div class="step-icon"><i class="pe-7s-like2"></i></div>
+            </div>
+            <h4 class="step-title">Validation admin</h4>
           </div>
-          <h4 class="step-title">Distribution</h4>
-        </div>
-        <div class="step">
-          <div class="step-icon-wrap">
-            <div class="step-icon"><i class="pe-7s-home"></i></div>
+          <div class="step completed">
+            <div class="step-icon-wrap">
+              <div class="step-icon"><i class="pe-7s-pen"></i></div>
+            </div>
+            <h4 class="step-title">Signature BAT</h4>
           </div>
-          <h4 class="step-title">Commande Livrée</h4>
-        </div>
-        <div class="step">
-          <div class="step-icon-wrap">
-            <div class="step-icon"><i class="pe-7s-cash"></i></div>
+          <div class="step completed">
+            <div class="step-icon-wrap">
+              <div class="step-icon"><i class="pe-7s-diskette"></i></div>
+            </div>
+            <h4 class="step-title">Commande programme</h4>
           </div>
-          <h4 class="step-title">Facture payée</h4>
+
+          <div class="step completed">
+            <div class="step-icon-wrap">
+              <div class="step-icon"><i class="pe-7s-config"></i></div>
+            </div>
+            <h4 class="step-title">En production</h4>
+          </div>
+          <div class="step">
+            <div class="step-icon-wrap">
+              <div class="step-icon"><i class="pe-7s-car"></i></div>
+            </div>
+            <h4 class="step-title">Distribution</h4>
+          </div>
+          <div class="step">
+            <div class="step-icon-wrap">
+              <div class="step-icon"><i class="pe-7s-home"></i></div>
+            </div>
+            <h4 class="step-title">Commande Livrée</h4>
+          </div>
+          <div class="step">
+            <div class="step-icon-wrap">
+              <div class="step-icon"><i class="pe-7s-cash"></i></div>
+            </div>
+            <h4 class="step-title">Facture payée</h4>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+    <%end%>
+    <%end%>
+    <% if @my_orders  %>
+    <% @my_orders.each do |item| %>
+    <div class="card w-100 mb-3">
+      <div class="p-4 text-center text-white text-lg bg-dark rounded-top"><span class="text-uppercase">Suivi commande No - </span><span class="text-medium"><%= item.created_at.year.to_s + item.created_at.month.to_s + item.created_at.day.to_s + item.client.id.to_s + item.id.to_s %></span></div>
+      <div class="d-flex flex-wrap flex-sm-nowrap justify-content-between py-3 px-2 bg-secondary">
+
+        <!-- <div class="w-100 text-center py-1 px-2"><span class="text-medium">Téléchargement BAT:</span> <i class="pe-7s-download fa-2x bg-danger text-white rounded"></i></div> -->
+        <div class="w-100 text-center py-1 px-2"><span class="text-medium">Date livraison:</span> <%= item.desired_date %></div>
+      </div>
+      <div class="card-body">
+        <div class="steps d-flex flex-wrap flex-sm-nowrap justify-content-between padding-top-2x padding-bottom-1x">
+          <div class="step completed">
+            <div class="step-icon-wrap">
+              <div class="step-icon"><i class="pe-7s-hourglass"></i></div>
+            </div>
+            <h4 class="step-title">Etude Dossier</h4>
+          </div>
+          <div class="step completed">
+            <div class="step-icon-wrap">
+              <div class="step-icon"><i class="pe-7s-like2"></i></div>
+            </div>
+            <h4 class="step-title">Validation admin</h4>
+          </div>
+          <div class="step completed">
+            <div class="step-icon-wrap">
+              <div class="step-icon"><i class="pe-7s-pen"></i></div>
+            </div>
+            <h4 class="step-title">Signature BAT</h4>
+          </div>
+          <div class="step completed">
+            <div class="step-icon-wrap">
+              <div class="step-icon"><i class="pe-7s-diskette"></i></div>
+            </div>
+            <h4 class="step-title">Commande programme</h4>
+          </div>
+
+          <div class="step completed">
+            <div class="step-icon-wrap">
+              <div class="step-icon"><i class="pe-7s-config"></i></div>
+            </div>
+            <h4 class="step-title">En production</h4>
+          </div>
+          <div class="step">
+            <div class="step-icon-wrap">
+              <div class="step-icon"><i class="pe-7s-car"></i></div>
+            </div>
+            <h4 class="step-title">Distribution</h4>
+          </div>
+          <div class="step">
+            <div class="step-icon-wrap">
+              <div class="step-icon"><i class="pe-7s-home"></i></div>
+            </div>
+            <h4 class="step-title">Commande Livrée</h4>
+          </div>
+          <div class="step">
+            <div class="step-icon-wrap">
+              <div class="step-icon"><i class="pe-7s-cash"></i></div>
+            </div>
+            <h4 class="step-title">Facture payée</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%end%>
+    <%end%>
   </div>
