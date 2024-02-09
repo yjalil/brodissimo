@@ -11,25 +11,30 @@ User.destroy_all
 User.create!(
   email: "rachid.sabir_client@gmail.com",
   password: "secret",
-  username: "Rachid Sabir"
+  username: "Rachid Sabir",
+  role: "client"
 )
 
 User.create!(
   email: "jalil.yahy_client@gmail.com",
   password: "secret",
-  username: "Jalil Yahy"
+  username: "Jalil Yahy",
+  role: "client"
 )
 
 User.create!(
-  email: "jalil.yahy_worker@gmail.com",
+  email: "jalil.yahy_admin@gmail.com",
   password: "secret",
-  username: "JALIL YAHY"
+  username: "JALIL YAHY",
+  role: "admin"
 )
 
 Machine.create!(
   name: "brod_test_1",
   description: "does nothing"
 )
+
+Catalog.create!()
 
 Order.create!(
   client_id: User.first.id,
