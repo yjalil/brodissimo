@@ -1,0 +1,137 @@
+<!-- -------------------------------------------
+                Nav bar
+------------------------------------------- -->
+
+<style>
+.navbar {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 90%;
+  margin: 30px auto;
+  border-radius: 20px;
+}
+</style>
+
+<nav class="navbar navbar-expand-lg sticky-wrapper is-sticky ">
+  <div class="container">
+    <!-- <a class="navbar-brand" href="index.html"> -->
+      <%= link_to root_path, class:"navbar-brand" do %>
+      <!-- <img src="./images/logo.png" alt="" width="auto" height="75"> -->
+      <%= image_tag 'logo.png', height:75, width: "auto" %>
+      <% end %>
+      <!-- </a> -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav align-items-lg-center ms-auto me-lg-5">
+
+        <%= link_to root_path, class:"nav-link" do %>
+          Accueil
+        <% end %>
+
+        <li class="nav-item">
+          <a class="nav-link click-scroll" href="#section_1">A propos de nous</a>
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
+</nav id="section_1">
+
+<!-- -------------------------------------------
+      End Nav bar        &    start about
+------------------------------------------- -->
+<div class="container">
+
+  <div class="about-container pt-5">
+    <h2>A Propos de Nous</h2>
+    <div class="description">
+      Brodessimo est une entreprise spécialisée dans tous les types de broderie, offrant des services de haute qualité pour répondre aux besoins de ses clients. <br><br>
+     Depuis sa création, Brodessimo s'engage à fournir des produits personnalisés et uniques, alliant tradition et innovation dans chaque création.<br><br>
+    </div>
+  </div>
+<div class="partners-section">
+  <h2><strong>Nos partenaires</strong></h2>
+    <p>Grâce à nos partenariats soutenus avec JobInTech et Le Wagon, nous disposons de ressources de formation de pointe qui soutiennent notre succès et nous permettent d'innover constamment dans le domaine du développement web.</p>
+  <div class="partner">
+    <%= image_tag 'lewagon.png'%>
+    <%= image_tag 'jobintech.png'%>
+  </div>
+
+</div>
+
+
+  <!-- Team Section -->
+  <div class="team-container">
+    <div class="section-title">
+      <h2>Notre Equipe</h2>
+      <p>Dynamique et déterminée, notre équipe de développeurs web est façonnée par une passion commune pour la technologie et le design. Formés par les programmes d'excellence de JobInTech et l'Institut Le Wagon, nous combinons nos compétences pour créer des expériences digitales uniques et pertinentes.</p>
+    </div>
+    <div class="row">
+      <div class="col-lg-3 col-md-6 col-12">
+        <!-- Start Single Team -->
+        <div class="team-member">
+          <div class="team-image">
+            <%= image_tag 'rachid.jpg', width:"300", height:"250" %>
+          </div>
+          <div class="cont">
+            <h4>Rachid Sabir</h4>
+            <span>Developpeur Web</span>
+          </div>
+        </div>
+        <!-- End Single Team -->
+      </div>
+      <!-- Add more team members as needed -->
+
+      <div class="col-lg-3 col-md-6 col-12">
+        <!-- Start Single Team -->
+        <div class="team-member">
+          <div class="team-image">
+            <%= image_tag 'jalil.jpg', width:"300", height:"250" %>
+          </div>
+          <div class="cont">
+            <h4>Abdeljalil Yahya</h4>
+            <span>Developpeur Web</span>
+          </div>
+        </div>
+        <!-- End Single Team -->
+      </div>
+      <!-- Add more team members as needed -->
+
+      <div class="col-lg-3 col-md-6 col-12">
+        <!-- Start Single Team -->
+        <div class="team-member">
+          <div class="team-image">
+            <%= image_tag 'oussama.jpg', width:"300", height:"250" %>
+          </div>
+          <div class="cont">
+            <h4>Ousama Diyab</h4>
+            <span>Developpeur Web</span>
+          </div>
+        </div>
+        <!-- End Single Team -->
+      </div>
+      <!-- Add more team members as needed -->
+
+      <div class="col-lg-3 col-md-6 col-12">
+        <!-- Start Single Team -->
+        <div class="team-member">
+          <div class="team-image">
+            <%= image_tag 'khawla.jpeg', width:"300", height:"250" %>
+          </div>
+          <div class="cont">
+            <h4>Ahmouchi Khaoula</h4>
+            <span>Deveoppeuse Web</span>
+
+          </div>
+        </div>
+        <!-- End Single Team -->
+      </div>
+      <!-- Add more team members as needed -->
+    </div>
+  </div>
+  <!-- End Team Section -->
+</div>

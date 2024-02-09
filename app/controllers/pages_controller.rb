@@ -5,6 +5,9 @@ class PagesController < ApplicationController
 
   end
 
+  def about
+    render
+  end
 
   def dashboard
     if current_user.role =="admin"

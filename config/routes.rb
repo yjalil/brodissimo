@@ -18,5 +18,6 @@ Rails.application.routes.draw do
   resources :assignements
 
   get "dashboard", to: "pages#dashboard", :as => :dashboard
+  get "/about", to: "pages#about"
 
 end
