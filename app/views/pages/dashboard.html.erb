@@ -58,53 +58,85 @@
   <div id ="content"class="container padding-bottom-3x mb-3 ">
     <% if @all_orders  %>
     <% @all_orders.each do |item| %>
+    <% statuses = ["Etude Dossier", "Validation Admin", "Signature BAT", "En Production", "Distribution", "Commande livrée"] %>
+<% item_status_index = statuses.find_index(item.status)
+<% case item_status_index
+when 0
+etude_dossier_class = "step completed"
+when 1
+etude_dossier_class = "step completed"
+validation_admin_class = "step completed"
+when 2
+etude_dossier_class = "step completed"
+validation_admin_class = "step completed"
+signature_bat = "step completed"
+when 3
+etude_dossier_class = "step completed"
+validation_admin_class = "step completed"
+signature_bat_class = "step completed"
+en_production_class = "step completed"
+when 4
+etude_dossier_class = "step completed"
+validation_admin_class = "step completed"
+signature_bat_class = "step completed"
+en_production_class = "step completed"
+distribution_class = "step completed"
+when 5
+etude_dossier_class = "step completed"
+validation_admin_class = "step completed"
+signature_bat_class = "step completed"
+en_production_class = "step completed"
+distribution_class = "step completed"
+commande_livree_class = "step completed"
+else
+etude_dossier_class = "step"
+validation_admin_class = "step"
+signature_bat_class = "step"
+en_production_class = "step"
+distribution_class = "step"
+commande_livree_class = "step"
+end %>
     <div class="card w-100 mb-3">
       <div class="p-4 text-center text-white text-lg bg-dark rounded-top"><span class="text-uppercase">Suivi commande No - </span><span class="text-medium"><%= item.created_at.year.to_s + item.created_at.month.to_s + item.created_at.day.to_s + item.client.id.to_s + item.id.to_s %></span></div>
       <div class="d-flex flex-wrap flex-sm-nowrap justify-content-between py-3 px-2 bg-secondary">
 
         <div class="w-100 text-center py-1 px-2"><span class="text-medium">Client :</span> <%= item.client.username %></div>
-        <div class="w-100 text-center py-1 px-2"><span class="text-medium">Date livraison :</span> <%= item.desired_date %></div>
+        <div class="w-100 text-center py-1 px-2"><span class="text-medium">Date livraison :</span> <%= item.date_desired %></div>
       </div>
       <div class="card-body">
         <div class="steps d-flex flex-wrap flex-sm-nowrap justify-content-between padding-top-2x padding-bottom-1x">
-          <div class="step completed">
+          <div class="<%= etude_dossier_class %>">
             <div class="step-icon-wrap">
               <div class="step-icon"><i class="pe-7s-hourglass"></i></div>
             </div>
             <h4 class="step-title">Etude Dossier</h4>
           </div>
-          <div class="step completed">
+          <div class="<%= validation_admin_class %>">
             <div class="step-icon-wrap">
               <div class="step-icon"><i class="pe-7s-like2"></i></div>
             </div>
             <h4 class="step-title">Validation admin</h4>
           </div>
-          <div class="step completed">
+          <div class="<%= signature_bat_class %>">
             <div class="step-icon-wrap">
               <div class="step-icon"><i class="pe-7s-pen"></i></div>
             </div>
             <h4 class="step-title">Signature BAT</h4>
           </div>
-          <div class="step completed">
-            <div class="step-icon-wrap">
-              <div class="step-icon"><i class="pe-7s-diskette"></i></div>
-            </div>
-            <h4 class="step-title">Commande programme</h4>
-          </div>
 
-          <div class="step completed">
+          <div class="<%= en_production_class %>">
             <div class="step-icon-wrap">
               <div class="step-icon"><i class="pe-7s-config"></i></div>
             </div>
             <h4 class="step-title">En production</h4>
           </div>
-          <div class="step">
+          <div class="<%= distribution_class %>">
             <div class="step-icon-wrap">
               <div class="step-icon"><i class="pe-7s-car"></i></div>
             </div>
             <h4 class="step-title">Distribution</h4>
           </div>
-          <div class="step">
+          <div class="<%= commande_livree_class %>">
             <div class="step-icon-wrap">
               <div class="step-icon"><i class="pe-7s-home"></i></div>
             </div>
@@ -123,53 +155,85 @@
     <%end%>
     <% if @my_orders  %>
     <% @my_orders.each do |item| %>
+    <% statuses = ["Etude Dossier", "Validation Admin", "Signature BAT", "En Production", "Distribution", "Commande livrée"] %>
+<% item_status_index = statuses.find_index(item.status)
+<% case item_status_index
+when 0
+etude_dossier_class = "step completed"
+when 1
+etude_dossier_class = "step completed"
+validation_admin_class = "step completed"
+when 2
+etude_dossier_class = "step completed"
+validation_admin_class = "step completed"
+signature_bat = "step completed"
+when 3
+etude_dossier_class = "step completed"
+validation_admin_class = "step completed"
+signature_bat_class = "step completed"
+en_production_class = "step completed"
+when 4
+etude_dossier_class = "step completed"
+validation_admin_class = "step completed"
+signature_bat_class = "step completed"
+en_production_class = "step completed"
+distribution_class = "step completed"
+when 5
+etude_dossier_class = "step completed"
+validation_admin_class = "step completed"
+signature_bat_class = "step completed"
+en_production_class = "step completed"
+distribution_class = "step completed"
+commande_livree_class = "step completed"
+else
+etude_dossier_class = "step"
+validation_admin_class = "step"
+signature_bat_class = "step"
+en_production_class = "step"
+distribution_class = "step"
+commande_livree_class = "step"
+end %>
     <div class="card w-100 mb-3">
       <div class="p-4 text-center text-white text-lg bg-dark rounded-top"><span class="text-uppercase">Suivi commande No - </span><span class="text-medium"><%= item.created_at.year.to_s + item.created_at.month.to_s + item.created_at.day.to_s + item.client.id.to_s + item.id.to_s %></span></div>
       <div class="d-flex flex-wrap flex-sm-nowrap justify-content-between py-3 px-2 bg-secondary">
 
         <!-- <div class="w-100 text-center py-1 px-2"><span class="text-medium">Téléchargement BAT:</span> <i class="pe-7s-download fa-2x bg-danger text-white rounded"></i></div> -->
-        <div class="w-100 text-center py-1 px-2"><span class="text-medium">Date livraison:</span> <%= item.desired_date %></div>
+        <div class="w-100 text-center py-1 px-2"><span class="text-medium">Date livraison:</span> <%= item.date_desired %></div>
       </div>
       <div class="card-body">
         <div class="steps d-flex flex-wrap flex-sm-nowrap justify-content-between padding-top-2x padding-bottom-1x">
-          <div class="step completed">
+          <div class="<%= etude_dossier_class %>">
             <div class="step-icon-wrap">
               <div class="step-icon"><i class="pe-7s-hourglass"></i></div>
             </div>
             <h4 class="step-title">Etude Dossier</h4>
           </div>
-          <div class="step completed">
+          <div class="<%= validation_admin_class %>">
             <div class="step-icon-wrap">
               <div class="step-icon"><i class="pe-7s-like2"></i></div>
             </div>
             <h4 class="step-title">Validation admin</h4>
           </div>
-          <div class="step completed">
+          <div class="<%= signature_bat_class %>">
             <div class="step-icon-wrap">
               <div class="step-icon"><i class="pe-7s-pen"></i></div>
             </div>
             <h4 class="step-title">Signature BAT</h4>
           </div>
-          <div class="step completed">
-            <div class="step-icon-wrap">
-              <div class="step-icon"><i class="pe-7s-diskette"></i></div>
-            </div>
-            <h4 class="step-title">Commande programme</h4>
-          </div>
 
-          <div class="step completed">
+          <div class="<%= en_production_class %>">
             <div class="step-icon-wrap">
               <div class="step-icon"><i class="pe-7s-config"></i></div>
             </div>
             <h4 class="step-title">En production</h4>
           </div>
-          <div class="step">
+          <div class="<%= distribution_class %>">
             <div class="step-icon-wrap">
               <div class="step-icon"><i class="pe-7s-car"></i></div>
             </div>
             <h4 class="step-title">Distribution</h4>
           </div>
-          <div class="step">
+          <div class="<%= commande_livree_class %>">
             <div class="step-icon-wrap">
               <div class="step-icon"><i class="pe-7s-home"></i></div>
             </div>

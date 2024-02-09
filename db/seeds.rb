@@ -68,8 +68,11 @@ def create_orders
       client_id: [1,2].sample,
       status: status,
       date_desired: rand(t1..t2),
-      item_id: [1..6].sample
+      item_id: rand(1..6),
+      type_photo: ["Face", "Dos"].sample,
       )
 
   end
 end
+
+create_orders

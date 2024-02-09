@@ -50,9 +50,13 @@ class OrdersController < ApplicationController
   end
 
   def edit_order_params
+    if params[:order].nil?
     params[:order] = {
-      date_desired: nil
-    } if params[:order].nil?params.require(:order).permit(Order.attribute_names.map(&:to_sym).excluding(:id, :created_at, :updated_at))
+      title: ""
+    }
+    end
+
+    params.require(:order).permit(Order.attribute_names.map(&:to_sym).excluding(:id, :created_at, :updated_at))
   end
 
 end
