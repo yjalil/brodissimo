@@ -2,10 +2,8 @@ require 'cloudinary'
 require 'open-uri'
 require 'date'
 
-Assignement.destroy_all
 Order.destroy_all
 Catalog.destroy_all
-Machine.destroy_all
 User.destroy_all
 
 
